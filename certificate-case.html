@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus CaseX - Certificate Purpose Case</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Focus CaseX - Certificate Purpose Case</h1>
+        <nav>
+            <a href="index.html">Back to Case Selection</a>
+            <a href="general-case.html">General</a>
+            <a href="certificate-case.html">Certificate</a>
+            <a href="emergency-case.html">Emergency</a>
+            <a href="followup-case.html">Follow-up</a>
+            <a href="contactlens-case.html">Contact Lens</a>
+            <a href="orthoptics-case.html">Orthoptics</a>
+            <a href="lowvision-case.html">Low Vision</a>
+            <!-- Removed AI Assistant link as AI integrations are excluded -->
+        </nav>
+    </header>
+
+    <main class="case-sheet-container">
+        <form id="optometryCaseForm">
+            <input type="hidden" name="caseType" value="certificate">
+
+            <fieldset class="section">
+                <legend>Patient Info</legend>
+                <div class="form-group">
+                    <label for="patientId">Patient ID (Optional)</label>
+                    <input type="text" id="patientId" name="patientId" placeholder="e.g., P00123">
+                </div>
+                <div class="form-group">
+                    <label for="patientName">Name <sup>*</sup></label>
+                    <input type="text" id="patientName" name="patientName" placeholder="e.g., John Doe" required aria-required="true" autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="dateOfBirth">Date of Birth <sup>*</sup></label>
+                    <input type="date" id="dateOfBirth" name="dateOfBirth" required aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="dateOfExamination">Date of Examination <sup>*</sup></label>
+                    <input type="date" id="dateOfExamination" name="dateOfExamination" required aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="certificateType">Specific Certificate Type <sup>*</sup></label>
+                    <select id="certificateType" name="certificateType" required aria-required="true" aria-controls="certificateType_other">
+                        <option value="">Select...</option>
+                        <option value="Driving License (Private)">Driving License (Private)</option>
+                        <option value="Driving License (Commercial)">Driving License (Commercial)</option>
+                        <option value="Pilot (FAA Class 1)">Pilot (FAA Class 1)</option>
+                        <option value="Pilot (FAA Class 2)">Pilot (FAA Class 2)</option>
+                        <option value="Pilot (FAA Class 3)">Pilot (FAA Class 3)</option>
+                        <option value="Employment (General)">Employment (General)</option>
+                        <option value="Employment (Specific: Police)">Employment (Specific: Police)</option>
+                        <option value="Employment (Specific: Firefighter)">Employment (Specific: Firefighter)</option>
+                        <option value="Other">Other (describe below)</option>
+                    </select>
+                    <input type="text" id="certificateType_other" name="certificateType_other" placeholder="Specify other certificate type" class="conditional-group" aria-expanded="false" aria-describedby="certificateType">
+                </div>
+                <div class="form-group">
+                    <label for="governingBody">Governing Body/Authority</label>
+                    <input type="text" id="governingBody" name="governingBody" placeholder="e.g., State DMV, FAA, Employer Name">
+                </div>
+                <div class="form-group">
+                    <label for="dateOfLastCertificate">Date of Issuance of Last Certificate (if renewal)</label>
+                    <input type="date" id="dateOfLastCertificate" name="dateOfLastCertificate">
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Chief Complaint (CC)</legend>
+                <div class="form-group">
+                    <label for="chiefComplaint">Chief Complaint <sup>*</sup></label>
+                    <textarea id="chiefComplaint" name="chiefComplaint" rows="2" placeholder="e.g., Vision assessment for driving license renewal." required aria-required="true"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="hpi">History of Present Illness (HPI)</label>
+                    <textarea id="hpi" name="hpi" rows="3" placeholder="Details about specific visual concerns related to certificate purpose."></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>History</legend>
+                <div class="form-group">
+                    <label for="pmh">Past Medical History (PMH) relevant to vision</label>
+                    <textarea id="pmh" name="pmh" rows="2" placeholder="e.g., Diabetes, Hypertension, Neurological conditions."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="systemicMedications">Systemic Medications (relevant to vision)</label>
+                    <textarea id="systemicMedications" name="systemicMedications" rows="2" placeholder="e.g., medications with ocular side effects."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Ocular Review of Systems (ROS)</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="ocularROS_wnl" name="ocularROS_status" value="WNL" checked aria-controls="ocularROS_details">
+                        <label for="ocularROS_wnl">WNL</label>
+                        <input type="radio" id="ocularROS_notwnl" name="ocularROS_status" value="Not WNL" aria-controls="ocularROS_details">
+                        <label for="ocularROS_notwnl">Not WNL (details below)</label>
+                    </div>
+                    <textarea id="ocularROS_details" name="ocularROS_details" rows="2" class="conditional-group" aria-expanded="false" aria-describedby="ocularROS_wnl ocularROS_notwnl"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Systemic Review of Systems (ROS)</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="systemicROS_wnl" name="systemicROS_status" value="WNL" checked aria-controls="systemicROS_details">
+                        <label for="systemicROS_wnl">WNL</label>
+                        <input type="radio" id="systemicROS_notwnl" name="systemicROS_status" value="Not WNL" aria-controls="systemicROS_details">
+                        <label for="systemicROS_notwnl">Not WNL (details below)</label>
+                    </div>
+                    <textarea id="systemicROS_details" name="systemicROS_details" rows="2" class="conditional-group" aria-expanded="false" aria-describedby="systemicROS_wnl systemicROS_notwnl"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>History of Diplopia (past/present)?</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="diplopiaHistoryYes" name="diplopiaHistory" value="Yes">
+                        <label for="diplopiaHistoryYes">Yes</label>
+                        <input type="radio" id="diplopiaHistoryNo" name="diplopiaHistory" value="No" checked>
+                        <label for="diplopiaHistoryNo">No</label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Examination (Certificate Specific)</legend>
+
+                <div class="va-label">Visual Acuity</div>
+                <div class="va-row">
+                    <div class="form-group va-item">
+                        <label>UCVA OD</label>
+                        <input type="text" name="vaUncorrectedOD" placeholder="e.g., 20/40 (6/12)">
+                    </div>
+                    <div class="form-group va-item">
+                        <label>UCVA OS</label>
+                        <input type="text" name="vaUncorrectedOS" placeholder="e.g., 20/50 (6/15)">
+                    </div>
+                    <div class="form-group va-item">
+                        <label>UCVA OU</label>
+                        <input type="text" name="vaUncorrectedOU" placeholder="e.g., 20/30 (6/9)">
+                    </div>
+                </div>
+                <div class="va-row">
+                    <div class="form-group va-item">
+                        <label>BCVA OD (with habitual Rx)</label>
+                        <input type="text" name="vaBestCorrectedHabitualOD" placeholder="e.g., 20/20 (6/6) with -2.00DS">
+                    </div>
+                    <div class="form-group va-item">
+                        <label>BCVA OS (with habitual Rx)</label>
+                        <input type="text" name="vaBestCorrectedHabitualOS" placeholder="e.g., 20/25 (6/7.5) with -1.75DS">
+                    </div>
+                     <div class="form-group va-item">
+                        <label>BCVA OU (with habitual Rx)</label>
+                        <input type="text" name="vaBestCorrectedHabitualOU" placeholder="e.g., 20/20 (6/6)">
+                    </div>
+                </div>
+                <div class="va-row">
+                    <div class="form-group va-item">
+                        <label>BCVA OD (Best Corrected)</label>
+                        <input type="text" name="vaBestCorrectedOD" placeholder="e.g., 20/20 (6/6)">
+                    </div>
+                    <div class="form-group va-item">
+                        <label>BCVA OS (Best Corrected)</label>
+                        <input type="text" name="vaBestCorrectedOS" placeholder="e.g., 20/20 (6/6)">
+                    </div>
+                     <div class="form-group va-item">
+                        <label>BCVA OU (Best Corrected)</label>
+                        <input type="text" name="vaBestCorrectedOU" placeholder="e.g., 20/20 (6/6)">
+                    </div>
+                </div>
+                <div class="va-row">
+                    <div class="form-group va-item">
+                        <label>Near VA OD</label>
+                        <input type="text" name="vaNearOD" placeholder="e.g., J2 / N5">
+                    </div>
+                    <div class="form-group va-item">
+                        <label>Near VA OS</label>
+                        <input type="text" name="vaNearOS" placeholder="e.g., J3 / N6">
+                    </div>
+                    <div class="form-group va-item">
+                        <label>Near VA OU</label>
+                        <input type="text" name="vaNearOU" placeholder="e.g., J2 / N5">
+                    </div>
+                </div>
+                <div class="va-row">
+                    <div class="form-group va-item">
+                        <label for="distanceVaLogMAROD">Distance VA OD (LogMAR)</label>
+                        <input type="text" id="distanceVaLogMAROD" name="distanceVaLogMAROD" placeholder="e.g., 0.0 (LogMAR)">
+                    </div>
+                    <div class="form-group va-item">
+                        <label for="distanceVaLogMAROS">Distance VA OS (LogMAR)</label>
+                        <input type="text" id="distanceVaLogMAROS" name="distanceVaLogMAROS" placeholder="e.g., 0.1 (LogMAR)">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="colorVisionCertificate">Color Vision <sup>*</sup></label>
+                    <select id="colorVisionCertificate" name="colorVisionCertificate" required aria-required="true" aria-controls="colorVisionCertificate_details">
+                        <option value="">Select...</option>
+                        <option value="Normal">Normal</option>
+                        <option value="Red-Green Deficiency">Red-Green Deficiency</option>
+                        <option value="Blue-Yellow Deficiency">Blue-Yellow Deficiency</option>
+                        <option value="Acquired Deficiency">Acquired Deficiency</option>
+                        <option value="Not Tested">Not Tested</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <input type="text" id="colorVisionCertificate_details" name="colorVisionCertificate_details" placeholder="e.g., Ishihara 14/14, Type of deficiency." class="conditional-group" aria-expanded="false" aria-describedby="colorVisionCertificate">
+                </div>
+                <div class="form-group">
+                    <label for="visualFieldSpecifics">Specific Visual Field Test (if required)</label>
+                    <textarea id="visualFieldSpecifics" name="visualFieldSpecifics" rows="2" placeholder="e.g., Esterman Binocular Field Test."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="visualFieldFindingsCertificate">Visual Field Findings <sup>*</sup></label>
+                    <textarea id="visualFieldFindingsCertificate" name="visualFieldFindingsCertificate" rows="3" placeholder="e.g., Binocular field meets 120 degrees horizontal, 20 degrees vertical. No significant scotomas in central 20 degrees." required aria-required="true"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="peripheralVisionHorizontal">Peripheral Vision (Horizontal - degrees)</label>
+                    <input type="number" id="peripheralVisionHorizontal" name="peripheralVisionHorizontal" min="0" max="180" placeholder="e.g., 120">
+                </div>
+                <div class="form-group">
+                    <label for="peripheralVisionVertical">Peripheral Vision (Vertical - degrees)</label>
+                    <input type="number" id="peripheralVisionVertical" name="peripheralVisionVertical" min="0" max="120" placeholder="e.g., 90">
+                </div>
+                <div class="form-group">
+                    <label for="eomsCertificate">Extraocular Motility (EOMs) / Diplopia <sup>*</sup></label>
+                    <textarea id="eomsCertificate" name="eomsCertificate" rows="2" placeholder="e.g., Full range of motion, no diplopia in primary gaze or extremes." required aria-required="true"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="glareSensitivity">Glare Sensitivity (Optional)</label>
+                    <input type="text" id="glareSensitivity" name="glareSensitivity" placeholder="e.g., Normal with Brightness Acuity Tester (BAT).">
+                </div>
+                <div class="form-group">
+                    <label for="contrastSensitivity">Contrast Sensitivity (Optional)</label>
+                    <input type="text" id="contrastSensitivity" name="contrastSensitivity" placeholder="e.g., Pelli-Robson chart: 1.80 log units."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="darkAdaptation">Dark Adaptation (Optional)</label>
+                    <input type="text" id="darkAdaptation" name="darkAdaptation" placeholder="e.g., WNL, Abnormal.">
+                </div>
+                <div class="form-group">
+                    <label for="depthPerception">Depth Perception (seconds of arc)</label>
+                    <input type="text" id="depthPerception" name="depthPerception" placeholder="e.g., 40 seconds of arc">
+                </div>
+                <div class="form-group">
+                    <label for="refractionDetailsCertificate">Refraction Details (if relevant for Rx endorsement)</label>
+                    <textarea id="refractionDetailsCertificate" name="refractionDetailsCertificate" rows="2" placeholder="e.g., Current Rx: OD: -2.00DS, OS: -2.25DS."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Vision Correction Required/Allowed <sup>*</sup></label>
+                    <select id="visionCorrectionRequired" name="visionCorrectionRequired" required aria-required="true">
+                        <option value="">Select...</option>
+                        <option value="Yes (Spectacles Only)">Yes (Spectacles Only)</option>
+                        <option value="Yes (Contact Lenses Only)">Yes (Contact Lenses Only)</option>
+                        <option value="Yes (Either)">Yes (Either)</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="restrictionsEndorsements">Restrictions/Endorsements</label>
+                    <textarea id="restrictionsEndorsements" name="restrictionsEndorsements" rows="2" placeholder="e.g., Must wear corrective lenses, Daylight driving only."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="ocularHealthStatus">General Ocular Health Status</label>
+                    <textarea id="ocularHealthStatus" name="ocularHealthStatus" rows="2" placeholder="e.g., No progressive eye disease that would impair fitness for certificate."></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Investigations (if specific tests are required)</legend>
+                <div class="form-group">
+                    <label for="certificateInvestigations">Relevant Investigations</label>
+                    <textarea id="certificateInvestigations" name="certificateInvestigations" rows="3" placeholder="e.g., Humphrey 30-2 performed."></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Assessment & Plan</legend>
+                <div class="form-group">
+                    <label for="assessmentDiagnoses">Assessment / Diagnoses <sup>*</sup></label>
+                    <textarea id="assessmentDiagnoses" name="assessmentDiagnoses" rows="3" placeholder="e.g., 1. Myopia OU (corrected with spectacles).&#10;2. Visually fit for purpose." required aria-required="true"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="meetsStandards">Patient meets visual standards for certificate? <sup>*</sup></label>
+                    <select id="meetsStandards" name="meetsStandards" required aria-required="true">
+                        <option value="">Select...</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                        <option value="Conditional">Conditional</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="plan">Plan / Recommendations <sup>*</sup></label>
+                    <textarea id="plan" name="plan" rows="5" placeholder="e.g., 1. Patient meets the visual standards for a Class B driving license as per [State/Country] regulations.&#10;2. Provided a copy of the completed vision certificate form to patient." required aria-required="true"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="prognosis">Prognosis</label>
+                    <textarea id="prognosis" name="prognosis" rows="2" placeholder="e.g., Good with current management."></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Notes & Reflection</legend>
+                <div class="form-group">
+                    <label for="internalNotes">Internal Notes (Not for Patient)</label>
+                    <textarea id="internalNotes" name="internalNotes" rows="2"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="notesReflection">Personal Reflection/Learning Points</label>
+                    <textarea id="notesReflection" name="notesReflection" rows="3"></textarea>
+                </div>
+            </fieldset>
+
+            <div class="form-actions">
+                <!-- Removed 'Generate AI Draft' button as AI integrations are excluded -->
+                <button type="button" id="clearForm">Clear Form</button>
+                <button type="submit" id="saveCase">Save Case</button>
+            </div>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Focus CaseX. All rights reserved.</p>
+        <p>Powered by Focus</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

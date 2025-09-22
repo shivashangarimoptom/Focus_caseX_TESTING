@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus CaseX - Low Vision Case</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Focus CaseX - Low Vision Case</h1>
+        <nav>
+            <a href="index.html">Back to Case Selection</a>
+            <a href="general-case.html">General</a>
+            <a href="certificate-case.html">Certificate</a>
+            <a href="emergency-case.html">Emergency</a>
+            <a href="followup-case.html">Follow-up</a>
+            <a href="contactlens-case.html">Contact Lens</a>
+            <a href="orthoptics-case.html">Orthoptics</a>
+            <a href="lowvision-case.html">Low Vision</a>
+            <!-- Removed AI Assistant link as AI integrations are excluded -->
+        </nav>
+    </header>
+
+    <main class="case-sheet-container">
+        <form id="optometryCaseForm">
+            <input type="hidden" name="caseType" value="lowvision">
+
+            <fieldset class="section">
+                <legend>Patient Info</legend>
+                <div class="form-group">
+                    <label for="patientId">Patient ID (Optional)</label>
+                    <input type="text" id="patientId" name="patientId" placeholder="e.g., P00123">
+                </div>
+                <div class="form-group">
+                    <label for="patientName">Name <sup>*</sup></label>
+                    <input type="text" id="patientName" name="patientName" placeholder="e.g., Robert Brown" required aria-required="true" autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="dateOfBirth">Date of Birth <sup>*</sup></label>
+                    <input type="date" id="dateOfBirth" name="dateOfBirth" required aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="primaryLowVisionCause">Primary Cause of Low Vision <sup>*</sup></label>
+                    <textarea id="primaryLowVisionCause" name="primaryLowVisionCause" rows="2" placeholder="e.g., Age-related Macular Degeneration (AMD). / Diabetic Retinopathy." required aria-required="true"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="onsetProgressionLv">Onset/Progression of Vision Loss</label>
+                    <textarea id="onsetProgressionLv" name="onsetProgressionLv" rows="2" placeholder="e.g., Gradual vision loss over 5 years, worse in central vision."></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Chief Complaint (CC) - Low Vision</legend>
+                <div class="form-group">
+                    <label for="chiefComplaint">Chief Complaint <sup>*</sup></label>
+                    <textarea id="chiefComplaint" name="chiefComplaint" rows="2" placeholder="e.g., Difficulty reading small print and recognizing faces. / Struggles with mobility in dim light." required aria-required="true"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="functionalVisionConcerns">Specific Functional Vision Concerns</label>
+                    <textarea id="functionalVisionConcerns" name="functionalVisionConcerns" rows="3" placeholder="e.g., Cannot read prescription labels, struggles with grocery shopping, difficulty seeing oven dials."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Impact on Activities of Daily Living (ADLs)</label>
+                    <div class="input-group-inline">
+                        <input type="checkbox" id="adl_reading" name="adl_reading" value="Reading"><label for="adl_reading">Reading</label>
+                        <input type="checkbox" id="adl_writing" name="adl_writing" value="Writing"><label for="adl_writing">Writing</label>
+                        <input type="checkbox" id="adl_cooking" name="adl_cooking" value="Cooking"><label for="adl_cooking">Cooking</label>
+                        <input type="checkbox" id="adl_shopping" name="adl_shopping" value="Shopping"><label for="adl_shopping">Shopping</label>
+                        <input type="checkbox" id="adl_driving" name="adl_driving" value="Driving"><label for="adl_driving">Driving</label>
+                        <input type="checkbox" id="adl_mobility" name="adl_mobility" value="Mobility"><label for="adl_mobility">Mobility</label>
+                        <input type="checkbox" id="adl_faceRecognition" name="adl_faceRecognition" value="Face Recognition"><label for="adl_faceRecognition">Face Recognition</label>
+                        <input type="checkbox" id="adl_tvComputer" name="adl_tvComputer" value="TV/Computer Use"><label for="adl_tvComputer">TV/Computer Use</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lvGoals">Goals for Low Vision Aids/Rehabilitation</label>
+                    <textarea id="lvGoals" name="lvGoals" rows="2" placeholder="e.g., Wants to read newspaper, see faces clearly, maintain independence."></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>History</legend>
+                <div class="form-group">
+                    <label for="lightingPreferences">Lighting Preferences</label>
+                    <input type="text" id="lightingPreferences" name="lightingPreferences" placeholder="e.g., Prefers bright, direct light for reading.">
+                </div>
+                <div class="form-group">
+                    <label for="glareSensitivityLv">Glare Sensitivity</label>
+                    <input type="text" id="glareSensitivityLv" name="glareSensitivityLv" placeholder="e.g., Significant glare sensitivity in bright environments.">
+                </div>
+                <div class="form-group">
+                    <label for="currentAidsUsed">Current Aids Used (optical/non-optical)</label>
+                    <textarea id="currentAidsUsed" name="currentAidsUsed" rows="2" placeholder="e.g., Handheld magnifier (4x), large print books."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Mobility Impairment due to Vision?</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="mobilityImpairmentYes" name="mobilityImpairment" value="Yes" aria-controls="mobility_details_group">
+                        <label for="mobilityImpairmentYes">Yes</label>
+                        <input type="radio" id="mobilityImpairmentNo" name="mobilityImpairment" value="No" checked aria-controls="mobility_details_group">
+                        <label for="mobilityImpairmentNo">No</label>
+                    </div>
+                    <textarea id="mobility_details_group" name="mobility_details" rows="2" placeholder="Describe specific mobility challenges." class="conditional-group" aria-expanded="false" aria-describedby="mobilityImpairmentYes mobilityImpairmentNo"></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Examination (Low Vision Focused)</legend>
+
+                <div class="va-label">Visual Acuity</div>
+                <div class="form-group">
+                    <label for="vaChartUsed">VA Chart Used</label>
+                    <select id="vaChartUsed" name="vaChartUsed" aria-controls="vaChartUsed_other">
+                        <option value="">Select...</option>
+                        <option value="ETDRS">ETDRS</option>
+                        <option value="Lighthouse">Lighthouse</option>
+                        <option value="Feinbloom">Feinbloom</option>
+                        <option value="Snellen">Snellen</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <input type="text" id="vaChartUsed_other" name="vaChartUsed_other" placeholder="Specify other VA chart used" class="conditional-group" aria-expanded="false" aria-describedby="vaChartUsed">
+                </div>
+                <div class="va-row">
+                    <div class="form-group va-item">
+                        <label>Distance VA OD (LogMAR/Snellen)</label>
+                        <input type="text" name="vaDistanceOD" placeholder="e.g., 1.0 LogMAR (20/200, 6/60)">
+                    </div>
+                    <div class="form-group va-item">
+                        <label>Distance VA OS (LogMAR/Snellen)</label>
+                        <input type="text" name="vaDistanceOS" placeholder="e.g., 1.2 LogMAR (20/300, 6/90)">
+                    </div>
+                </div>
+                <div class="va-row">
+                    <div class="form-group va-item">
+                        <label>Near VA OD (M-Units/Jaeger)</label>
+                        <input type="text" name="vaNearOD" placeholder="e.g., 1.25 M / J5 at 10cm.">
+                    </div>
+                    <div class="form-group va-item">
+                        <label>Near VA OS (M-Units/Jaeger)</label>
+                        <input type="text" name="vaNearOS" placeholder="e.g., 1.50 M / J6 at 10cm.">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="prl">Preferred Retinal Locus (PRL) (if applicable)</label>
+                    <input type="text" id="prl" name="prl" placeholder="e.g., Inferior-temporal PRL OD.">
+                </div>
+                <div class="form-group">
+                    <label for="eccentricViewingStatus">Eccentric Viewing Training Status</label>
+                    <select id="eccentricViewingStatus" name="eccentricViewingStatus">
+                        <option value="">Select...</option>
+                        <option value="Initiated">Initiated</option>
+                        <option value="Ongoing">Ongoing</option>
+                        <option value="Proficient">Proficient</option>
+                        <option value="Not Applicable">Not Applicable</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="contrastSensitivityLv">Contrast Sensitivity</label>
+                    <input type="text" id="contrastSensitivityLv" name="contrastSensitivityLv" placeholder="e.g., Pelli-Robson chart: 0.90 log units.">
+                </div>
+                <div class="form-group">
+                    <label for="contrastSensitivityChart">Contrast Sensitivity Chart Used</label>
+                    <select id="contrastSensitivityChart" name="contrastSensitivityChart" aria-controls="contrastSensitivityChart_other">
+                        <option value="">Select...</option>
+                        <option value="Pelli-Robson">Pelli-Robson</option>
+                        <option value="LEA Symbols">LEA Symbols</option>
+                        <option value="FACT">FACT</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <input type="text" id="contrastSensitivityChart_other" name="contrastSensitivityChart_other" placeholder="Specify other chart used" class="conditional-group" aria-expanded="false" aria-describedby="contrastSensitivityChart">
+                </div>
+                <div class="va-row">
+                    <div class="form-group va-item">
+                        <label>Amsler Grid OD</label>
+                        <textarea id="amslerGridOD" name="amslerGridOD" rows="1" placeholder="e.g., Large central scotoma OD."></textarea>
+                    </div>
+                    <div class="form-group va-item">
+                        <label>Amsler Grid OS</label>
+                        <textarea id="amslerGridOS" name="amslerGridOS" rows="1" placeholder="e.g., No change from baseline."></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="visualFieldSpecificsLv">Visual Fields (specific tests)</label>
+                    <textarea id="visualFieldSpecificsLv" name="visualFieldSpecificsLv" rows="2" placeholder="e.g., Tangent screen: Tunnel vision OS."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="visualFieldType">Type of Field Loss</label>
+                    <select id="visualFieldType" name="visualFieldType" aria-controls="visualFieldType_other">
+                        <option value="">Select...</option>
+                        <option value="Central Scotoma">Central Scotoma</option>
+                        <option value="Peripheral Field Loss">Peripheral Field Loss</option>
+                        <option value="Hemianopsia">Hemianopsia</option>
+                        <option value="Tunnel Vision">Tunnel Vision</option>
+                        <option value="Generalized Depression">Generalized Depression</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <input type="text" id="visualFieldType_other" name="visualFieldType_other" placeholder="Specify other type of field loss" class="conditional-group" aria-expanded="false" aria-describedby="visualFieldType">
+                </div>
+                <div class="form-group">
+                    <label for="refractionLv">Refraction (maximize best corrected vision)</label>
+                    <textarea id="refractionLv" name="refractionLv" rows="2" placeholder="e.g., OD: -2.00 -0.50 x 180 Add +4.00."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="magnificationNeeded">Calculated Magnification Needed for Reading</label>
+                    <input type="text" id="magnificationNeeded" name="magnificationNeeded" placeholder="e.g., 4X">
+                </div>
+                <div class="form-group">
+                    <label for="lightingAssessment">Lighting Assessment</label>
+                    <textarea id="lightingAssessment" name="lightingAssessment" rows="2" placeholder="e.g., Patient performs better with task lamp (LED, 5000K)."></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Low Vision Aids Evaluation</legend>
+
+                <div class="va-label">Optical Aids</div>
+                <div class="form-group">
+                    <label for="handMagnifiers">Hand Magnifiers</label>
+                    <textarea id="handMagnifiers" name="handMagnifiers" rows="2" placeholder="e.g., Recommended Eschenbach 7x handheld magnifier."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="standMagnifiers">Stand Magnifiers</label>
+                    <textarea id="standMagnifiers" name="standMagnifiers" rows="2" placeholder="e.g., Recommended Coil 5x illuminated stand magnifier."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="telescopes">Telescopes (Monocular/Binocular)</label>
+                    <textarea id="telescopes" name="telescopes" rows="2" placeholder="e.g., Eschenbach 4x monocular telescope for distance spot reading."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="filterLenses">Filter Lenses</label>
+                    <textarea id="filterLenses" name="filterLenses" rows="2" placeholder="e.g., Recommended No. 540 filter for outdoor glare."></textarea>
+                </div>
+
+                <div class="va-label">Non-Optical Aids</div>
+                <div class="form-group">
+                    <label for="nonOpticalAids">Non-Optical Aids (e.g., reading stands, writing guides)</label>
+                    <textarea id="nonOpticalAids" name="nonOpticalAids" rows="2" placeholder="e.g., Provided signature guide. Recommended desktop reading stand."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="electronicAids">Electronic Aids (CCTV, Video Magnifiers, Software)</label>
+                    <textarea id="electronicAids" name="electronicAids" rows="3" placeholder="e.g., Demonstrated desktop CCTV, patient preferred. Discussed ZoomText."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="audioTactileAids">Audio/Tactile Aids Considered</label>
+                    <textarea id="audioTactileAids" name="audioTactileAids" rows="2" placeholder="e.g., Audiobooks, Braille, Talking watches."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Aids Dispensed Today?</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="aidsDispensedYes" name="aidsDispensedToday" value="Yes" aria-controls="aidsDispensedList">
+                        <label for="aidsDispensedYes">Yes</label>
+                        <input type="radio" id="aidsDispensedNo" name="aidsDispensedToday" value="No" checked aria-controls="aidsDispensedList">
+                        <label for="aidsDispensedNo">No</label>
+                    </div>
+                    <textarea id="aidsDispensedList" name="aidsDispensedList" rows="3" placeholder="List aids dispensed and instructions." class="conditional-group" aria-expanded="false" aria-describedby="aidsDispensedYes aidsDispensedNo"></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Referrals & Rehabilitation</legend>
+                <div class="form-group">
+                    <label>Referral to Orientation & Mobility (O&M) Specialist?</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="referralOMYes" name="referralOM" value="Yes" aria-controls="referralOM_details">
+                        <label for="referralOMYes">Yes</label>
+                        <input type="radio" id="referralOMNo" name="referralOM" value="No" checked aria-controls="referralOM_details">
+                        <label for="referralOMNo">No</label>
+                    </div>
+                    <textarea id="referralOM_details" name="referralOM_details" rows="2" placeholder="Specify O&M specialist and reason." class="conditional-group" aria-expanded="false" aria-describedby="referralOMYes referralOMNo"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Referral to Occupational Therapist (OT) for ADLs?</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="referralOTYes" name="referralOT" value="Yes" aria-controls="referralOT_details">
+                        <label for="referralOTYes">Yes</label>
+                        <input type="radio" id="referralOTNo" name="referralOT" value="No" checked aria-controls="referralOT_details">
+                        <label for="referralOTNo">No</label>
+                    </div>
+                    <textarea id="referralOT_details" name="referralOT_details" rows="2" placeholder="Specify OT and areas for ADL training." class="conditional-group" aria-expanded="false" aria-describedby="referralOTYes referralOTNo"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Referral to Social Services/Support Groups?</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="referralSSYes" name="referralSS" value="Yes" aria-controls="referralSS_details">
+                        <label for="referralSSYes">Yes</label>
+                        <input type="radio" id="referralSSNo" name="referralSS" value="No" checked aria-controls="referralSS_details">
+                        <label for="referralSSNo">No</label>
+                    </div>
+                    <textarea id="referralSS_details" name="referralSS_details" rows="2" placeholder="Specify service/group and patient needs." class="conditional-group" aria-expanded="false" aria-describedby="referralSSYes referralSSNo"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="otherReferralsLv">Other Referrals/Consults (e.g., genetic counseling)</label>
+                    <textarea id="otherReferralsLv" name="otherReferralsLv" rows="2"></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Assessment & Plan</legend>
+                <div class="form-group">
+                    <label for="assessmentDiagnoses">Assessment / Diagnoses <sup>*</sup></label>
+                    <textarea id="assessmentDiagnoses" name="assessmentDiagnoses" rows="5" placeholder="1. Age-related Macular Degeneration (AMD) OU, geographic atrophy.&#10;2. Functional vision impairment impacting reading and face recognition.&#10;3. Goals: improve reading speed and outdoor mobility." required aria-required="true"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="plan">Plan / Rehabilitation Strategy <sup>*</sup></label>
+                    <textarea id="plan" name="plan" rows="5" placeholder="1. Prescribe 4X illuminated stand magnifier for reading.&#10;2. Patient education on eccentric viewing technique.&#10;3. Refer to O&M specialist for outdoor mobility training.&#10;4. RTC 3 months for LV follow-up and aid evaluation." required aria-required="true"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="prognosis">Prognosis (Functional)</label>
+                    <textarea id="prognosis" name="prognosis" rows="2" placeholder="e.g., Fair for improving functional independence with aids and rehabilitation."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="followUpInstructions">Follow Up Instructions</label>
+                    <textarea id="followUpInstructions" name="followUpInstructions" rows="3" placeholder="e.g., Practice using magnifier daily. Contact O&M specialist. Return in 3 months."></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Notes & Reflection</legend>
+                <div class="form-group">
+                    <label for="internalNotes">Internal Notes (Not for Patient)</label>
+                    <textarea id="internalNotes" name="internalNotes" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="notesReflection">Personal Reflection/Learning Points</label>
+                    <textarea id="notesReflection" name="notesReflection" rows="4"></textarea>
+                </div>
+            </fieldset>
+
+            <div class="form-actions">
+                <!-- Removed 'Generate AI Draft' button as AI integrations are excluded -->
+                <button type="button" id="clearForm">Clear Form</button>
+                <button type="submit" id="saveCase">Save Case</button>
+            </div>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Focus CaseX. All rights reserved.</p>
+        <p>Powered by Focus</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

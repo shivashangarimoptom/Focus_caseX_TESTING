@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus CaseX - Select Case Type</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Specific styles for the index page */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        main {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-xl); /* Add padding to main for consistency */
+        }
+        /* Specific styles for the index page */
+        .case-selection-container h2 {
+            color: var(--primary-color-dark);
+            margin-bottom: 35px;
+            font-size: 2.2em;
+            font-weight: 600;
+        }
+        .case-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: var(--spacing-xxl);
+            margin-top: var(--spacing-xl);
+        }
+        .case-list li a {
+            display: block;
+            padding: 18px var(--spacing-xxl);
+            background-color: var(--primary-color-light);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--border-radius-md);
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            font-weight: bold;
+            font-size: 1.15em;
+            box-shadow: var(--box-shadow-sm);
+            text-align: center;
+        }
+        .case-list li a:hover {
+            background-color: var(--primary-color-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3);
+        }
+
+        /* Adjust header nav for index page */
+        #index-header-nav {
+            justify-content: flex-end;
+        }
+
+        /* Media queries specific to index page */
+        @media (max-width: 768px) {
+            main {
+                padding: var(--spacing-md);
+            }
+            .case-selection-container {
+                padding: var(--spacing-xl);
+            }
+        }
+        @media (max-width: 480px) {
+            .case-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Focus CaseX</h1>
+        <nav id="index-header-nav">
+            <!-- AI Assistant link removed as per instructions -->
+        </nav>
+    </header>
+
+    <main>
+        <div class="case-selection-container">
+            <h2>Select an Optometry Case Type</h2>
+            <ul class="case-list">
+                <li><a href="general-case.html">General Optometry Case</a></li>
+                <li><a href="certificate-case.html">Certificate Purpose Case</a></li>
+                <li><a href="emergency-case.html">Emergency Case</a></li>
+                <li><a href="followup-case.html">Follow-up Case</a></li>
+                <li><a href="contactlens-case.html">Contact Lens Case</a></li>
+                <li><a href="orthoptics-case.html">Orthoptics Case</a></li>
+                <li><a href="lowvision-case.html">Low Vision Case</a></li>
+                <li><a href="surgicalcomanagement-case.html">Surgical Co-management Case</a></li>
+                <li><a href="pediatricoptometry-case.html">Pediatric Optometry Case</a></li>
+                <li><a href="ocularsurfacedisease-case.html">Ocular Surface Disease Case</a></li>
+                <li><a href="myopiamanagement-case.html">Myopia Management Case</a></li>
+                <li><a href="neurooptometry-case.html">Neuro-Optometry & Rehab Case</a></li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Focus CaseX. All rights reserved.</p>
+        <p>Powered by Focus</p>
+    </footer>
+</body>
+</html>

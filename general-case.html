@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus CaseX - General Optometry Case</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Focus CaseX - General Optometry Case</h1>
+        <nav>
+            <a href="index.html">Back to Case Selection</a>
+            <a href="general-case.html">General</a>
+            <a href="certificate-case.html">Certificate</a>
+            <a href="emergency-case.html">Emergency</a>
+            <a href="followup-case.html">Follow-up</a>
+            <a href="contactlens-case.html">Contact Lens</a>
+            <a href="orthoptics-case.html">Orthoptics</a>
+            <a href="lowvision-case.html">Low Vision</a>
+            <!-- Removed AI Assistant link as AI integrations are excluded -->
+        </nav>
+    </header>
+
+    <main class="case-sheet-container">
+        <form id="optometryCaseForm">
+            <input type="hidden" name="caseType" value="general">
+
+            <fieldset class="section">
+                <legend>Patient Info</legend>
+                <div class="form-group">
+                    <label for="patientId">Patient ID (Optional)</label>
+                    <input type="text" id="patientId" name="patientId" placeholder="e.g., P00123">
+                </div>
+                <div class="form-group">
+                    <label for="patientName">Name <sup>*</sup></label>
+                    <input type="text" id="patientName" name="patientName" placeholder="e.g., John Doe" required aria-required="true" autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="dateOfBirth">Date of Birth <sup>*</sup></label>
+                    <input type="date" id="dateOfBirth" name="dateOfBirth" required aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="patientAge">Age</label>
+                    <input type="number" id="patientAge" name="patientAge" min="0" max="120" placeholder="e.g., 33" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="patientGender">Gender</label>
+                    <select id="patientGender" name="patientGender">
+                        <option value="">Select...</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="non-binary">Non-binary</option>
+                        <option value="prefer-not-to-say">Prefer not to say</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="ethnicBackground">Ethnic Background</label>
+                    <input type="text" id="ethnicBackground" name="ethnicBackground" placeholder="e.g., Caucasian, African American, Asian, Hispanic/Latino">
+                </div>
+                <div class="va-row">
+                    <div class="form-group va-item">
+                        <label for="patientHeight">Height (cm)</label>
+                        <input type="number" id="patientHeight" name="patientHeight" min="50" max="250" placeholder="e.g., 175">
+                    </div>
+                    <div class="form-group va-item">
+                        <label for="patientWeight">Weight (kg)</label>
+                        <input type="number" id="patientWeight" name="patientWeight" min="10" max="300" placeholder="e.g., 70">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="contactNumber">Contact Number</label>
+                    <input type="tel" id="contactNumber" name="contactNumber" placeholder="e.g., (555) 123-4567">
+                </div>
+                <div class="form-group">
+                    <label for="emailAddress">Email Address</label>
+                    <input type="email" id="emailAddress" name="emailAddress" placeholder="e.g., john.doe@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="patientAddress">Address</label>
+                    <textarea id="patientAddress" name="patientAddress" rows="3" placeholder="e.g., 123 Main St, Anytown, USA"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="occupation">Occupation</label>
+                    <input type="text" id="occupation" name="occupation" placeholder="e.g., Software Engineer">
+                </div>
+                <div class="form-group">
+                    <label for="emergencyContactName">Emergency Contact Name</label>
+                    <input type="text" id="emergencyContactName" name="emergencyContactName">
+                </div>
+                <div class="form-group">
+                    <label for="emergencyContactRelationship">Emergency Contact Relationship</label>
+                    <input type="text" id="emergencyContactRelationship" name="emergencyContactRelationship">
+                </div>
+                <div class="form-group">
+                    <label for="emergencyContactNumber">Emergency Contact Number</label>
+                    <input type="tel" id="emergencyContactNumber" name="emergencyContactNumber">
+                </div>
+                <div class="form-group">
+                    <label for="dateOfLastEyeExam">Date of Last Eye Exam</label>
+                    <input type="date" id="dateOfLastEyeExam" name="dateOfLastEyeExam">
+                </div>
+                <div class="form-group">
+                    <label for="dateOfLastPhysicalExam">Date of Last Physical Exam</label>
+                    <input type="date" id="dateOfLastPhysicalExam" name="dateOfLastPhysicalExam">
+                </div>
+                <div class="form-group">
+                    <label>Current Spectacle Wearer?</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="spectaclesYes" name="currentSpectacleWearer" value="Yes" aria-controls="currentSpectacleRx_group">
+                        <label for="spectaclesYes">Yes</label>
+                        <input type="radio" id="spectaclesNo" name="currentSpectacleWearer" value="No" checked aria-controls="currentSpectacleRx_group">
+                        <label for="spectaclesNo">No</label>
+                    </div>
+                    <textarea id="currentSpectacleRx_group" name="currentSpectacleRx" rows="2" placeholder="e.g., OD: -1.50 -0.25 x 175, OS: -1.25 DS. Progressive." class="conditional-group" aria-expanded="false" aria-describedby="spectaclesYes spectaclesNo"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Current Contact Lens Wearer?</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="contactLensYes" name="currentContactLensWearer" value="Yes" aria-controls="currentContactLensRx_group">
+                        <label for="contactLensYes">Yes</label>
+                        <input type="radio" id="contactLensNo" name="currentContactLensWearer" value="No" checked aria-controls="currentContactLensRx_group">
+                        <label for="contactLensNo">No</label>
+                    </div>
+                    <textarea id="currentContactLensRx_group" name="currentContactLensRx" rows="2" placeholder="e.g., Acuvue Oasys, -3.00 DS, BC 8.4, DIA 14.0." class="conditional-group" aria-expanded="false" aria-describedby="contactLensYes contactLensNo"></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Chief Complaint (CC)</legend>
+                <div class="form-group">
+                    <label for="chiefComplaint">Chief Complaint <sup>*</sup></label>
+                    <textarea id="chiefComplaint" name="chiefComplaint" rows="2" placeholder="e.g., Blurry vision at distance for 2 weeks, worse in the evening." required aria-required="true"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="qualityOfVision">Quality of Vision</label>
+                    <select id="qualityOfVision" name="qualityOfVision">
+                        <option value="">Select...</option>
+                        <option value="Blurry">Blurry</option>
+                        <option value="Cloudy">Cloudy</option>
+                        <option value="Distorted">Distorted</option>
+                        <option value="Double">Double</option>
+                        <option value="Halos">Halos</option>
+                        <option value="Decreased">Decreased</option>
+                        <option value="Fluctuating">Fluctuating</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="onsetOfSymptoms">Onset/Progression</label>
+                    <select id="onsetOfSymptoms" name="onsetOfSymptoms">
+                        <option value="">Select...</option>
+                        <option value="Sudden">Sudden</option>
+                        <option value="Gradual">Gradual</option>
+                        <option value="Intermittent">Intermittent</option>
+                        <option value="Constant">Constant</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="laterality">Laterality</label>
+                    <select id="laterality" name="laterality">
+                        <option value="">Select...</option>
+                        <option value="OD">OD</option>
+                        <option value="OS">OS</option>
+                        <option value="OU">OU</option>
+                        <option value="OD_worse">OD Worse</option>
+                        <option value="OS_worse">OS Worse</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="severity">Severity</label>
+                    <select id="severity" name="severity">
+                        <option value="">Select...</option>
+                        <option value="Mild">Mild</option>
+                        <option value="Moderate">Moderate</option>
+                        <option value="Severe">Severe</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="hpi">History of Present Illness (HPI)</label>
+                    <textarea id="hpi" name="hpi" rows="4" placeholder="Details about the onset, duration, severity, modifying factors, associated symptoms, previous episodes, and treatments tried (OLD CARTS)."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Associated Symptoms (Check all that apply)</label>
+                    <div class="input-group-inline">
+                        <input type="checkbox" id="cc_redness" name="cc_redness" value="Redness"><label for="cc_redness">Redness</label>
+                        <input type="checkbox" id="cc_pain" name="cc_pain" value="Pain"><label for="cc_pain">Pain</label>
+                        <input type="checkbox" id="cc_discharge" name="cc_discharge" value="Discharge"><label for="cc_discharge">Discharge</label>
+                        <input type="checkbox" id="cc_itching" name="cc_itching" value="Itching"><label for="cc_itching">Itching</label>
+                        <input type="checkbox" id="cc_flashes" name="cc_flashes" value="Flashes"><label for="cc_flashes">Flashes</label>
+                        <input type="checkbox" id="cc_floaters" name="cc_floaters" value="Floaters"><label for="cc_floaters">Floaters</label>
+                        <input type="checkbox" id="cc_diplopia" name="cc_diplopia" value="Diplopia"><label for="cc_diplopia">Diplopia</label>
+                        <input type="checkbox" id="cc_photophobia" name="cc_photophobia" value="Photophobia"><label for="cc_photophobia">Photophobia</label>
+                        <input type="checkbox" id="cc_headache" name="cc_headache" value="Headache"><label for="cc_headache">Headache</label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>History</legend>
+                <div class="form-group">
+                    <label for="poh">Past Ocular History (POH)</label>
+                    <textarea id="poh" name="poh" rows="3" placeholder="e.g., Hx of allergic conjunctivitis OU (seasonal). No previous surgeries."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="pmh">Past Medical History (PMH)</label>
+                    <textarea id="pmh" name="pmh" rows="3" placeholder="e.g., Type 2 Diabetes Mellitus, Hypertension."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="allergies_details">Allergies</label>
+                    <textarea id="allergies_details" name="allergies_details" rows="2" placeholder="e.g., Penicillin (rash), environmental pollen."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="allergySeverity">Allergy Severity</label>
+                    <select id="allergySeverity" name="allergySeverity">
+                        <option value="">Select...</option>
+                        <option value="Mild">Mild</option>
+                        <option value="Moderate">Moderate</option>
+                        <option value="Severe">Severe</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="ocularMedications">Ocular Medications</label>
+                    <textarea id="ocularMedications" name="ocularMedications" rows="2" placeholder="e.g., Pataday OD BID (seasonal)."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="systemicMedications">Systemic Medications</label>
+                    <textarea id="systemicMedications" name="systemicMedications" rows="3" placeholder="e.g., Metformin 500mg BID, Lisinopril 10mg QD."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="foh">Family Ocular History (FOH)</label>
+                    <textarea id="foh" name="foh" rows="2" placeholder="e.g., Mother has glaucoma, Father has cataracts."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="fmh">Family Medical History (FMH)</label>
+                    <textarea id="fmh" name="fmh" rows="2" placeholder="e.g., Mother has Type 2 Diabetes."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="socialHistory">Social History</label>
+                    <textarea id="socialHistory" name="socialHistory" rows="3" placeholder="e.g., Non-smoker, occasional alcohol. Works full-time on computer (8 hrs/day)."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="smokingStatus">Smoking Status</label>
+                    <select id="smokingStatus" name="smokingStatus">
+                        <option value="">Select...</option>
+                        <option value="never">Never Smoker</option>
+                        <option value="former">Former Smoker</option>
+                        <option value="current">Current Smoker</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="packsPerDay">Packs/Day (if current/former smoker)</label>
+                    <input type="number" id="packsPerDay" name="packsPerDay" min="0" step="0.5" placeholder="e.g., 0.5">
+                </div>
+                <div class="form-group">
+                    <label for="yearsSmoked">Years Smoked (if current/former smoker)</label>
+                    <input type="number" id="yearsSmoked" name="yearsSmoked" min="0" placeholder="e.g., 10">
+                </div>
+                <div class="form-group">
+                    <label for="alcoholConsumption">Alcohol Consumption</label>
+                    <select id="alcoholConsumption" name="alcoholConsumption">
+                        <option value="">Select...</option>
+                        <option value="none">None</option>
+                        <option value="social">Social</option>
+                        <option value="moderate">Moderate</option>
+                        <option value="heavy">Heavy</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Recreational Drug Use?</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="drugsYes" name="recreationalDrugUse" value="Yes">
+                        <label for="drugsYes">Yes</label>
+                        <input type="radio" id="drugsNo" name="recreationalDrugUse" value="No" checked>
+                        <label for="drugsNo">No</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="sleepPatterns">Sleep Patterns</label>
+                    <textarea id="sleepPatterns" name="sleepPatterns" rows="2" placeholder="e.g., Adequate, Insomnia, Sleep Apnea."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="exposureHistory">Exposure History</label>
+                    <textarea id="exposureHistory" name="exposureHistory" rows="2" placeholder="e.g., UV exposure, chemical exposure, occupational hazards."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="birthHistory">Birth History (for pediatric/developmental cases)</label>
+                    <textarea id="birthHistory" name="birthHistory" rows="2" placeholder="e.g., Full term, normal spontaneous vaginal delivery, no complications."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Ocular Review of Systems (ROS)</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="ocularROS_wnl" name="ocularROS_status" value="WNL" checked aria-controls="ocularROS_details">
+                        <label for="ocularROS_wnl">WNL</label>
+                        <input type="radio" id="ocularROS_notwnl" name="ocularROS_status" value="Not WNL" aria-controls="ocularROS_details">
+                        <label for="ocularROS_notwnl">Not WNL (details below)</label>
+                    </div>
+                    <textarea id="ocularROS_details" name="ocularROS_details" rows="2" placeholder="e.g., dryness, watering, itching, burning, grittiness, redness, pain, photophobia, flashes, floaters, double vision, discharge, vision fluctuations." class="conditional-group" aria-expanded="false" aria-describedby="ocularROS_wnl ocularROS_notwnl"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Systemic Review of Systems (ROS)</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="systemicROS_wnl" name="systemicROS_status" value="WNL" checked aria-controls="systemicROS_details">
+                        <label for="systemicROS_wnl">WNL</label>
+                        <input type="radio" id="systemicROS_notwnl" name="systemicROS_status" value="Not WNL" aria-controls="systemicROS_details">
+                        <label for="systemicROS_notwnl">Not WNL (details below)</label>
+                    </div>
+                    <textarea id="systemicROS_details" name="systemicROS_details" rows="2" placeholder="e.g., headaches, dizziness, diabetes, hypertension, thyroid issues, arthritis, autoimmune conditions, sinus issues." class="conditional-group" aria-expanded="false" aria-describedby="systemicROS_wnl systemicROS_notwnl"></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Examination</legend>
+
+                <div class="va-label">Visual Acuity</div>
+                <div class="va-row">
+                    <div class="form-group va-item">
+                        <label>UCVA OD</label>
+                        <input type="text" name="vaUncorrectedOD" placeholder="e.g., 20/40 (6/12)">
+                    </div>
+                    <div class="form-group va-item">
+                        <label>UCVA OS</label>
+                        <input type="text" name="vaUncorrectedOS" placeholder="e.g., 20/50 (6/15)">
+                    </div>
+                </div>
+                <div class="va-row">
+                    <div class="form-group va-item">
+                        <label>BCVA OD (with current Rx/PH)</label>
+                        <input type="text" name="vaBestCorrectedOD" placeholder="e.g., 20/20 (6/6) with -2.00DS">
+                    </div>
+                    <div class="form-group va-item">
+                        <label>BCVA OS (with current Rx/PH)</label>
+                        <input type="text" name="vaBestCorrectedOS" placeholder="e.g., 20/25 (6/7.5) PH">
+                    </div>
+                </div>
+                <div class="va-row">
+                    <div class="form-group va-item">
+                        <label>Near VA OD</label>
+                        <input type="text" name="vaNearOD" placeholder="e.g., J2 / N5">
+                    </div>
+                    <div class="form-group va-item">
+                        <label>Near VA OS</label>
+                        <input type="text" name="vaNearOS" placeholder="e.g., J3 / N6">
+                    </div>
+                </div>
+                <div class="va-row">
+                    <div class="form-group va-item">
+                        <label for="glareAcuityOD">Glare Acuity OD</label>
+                        <input type="text" id="glareAcuityOD" name="glareAcuityOD" placeholder="e.g., 20/40 with BAT">
+                    </div>
+                    <div class="form-group va-item">
+                        <label for="glareAcuityOS">Glare Acuity OS</label>
+                        <input type="text" id="glareAcuityOS" name="glareAcuityOS" placeholder="e.g., 20/50 with BAT">
+                    </div>
+                </div>
+                <div class="va-row">
+                    <div class="form-group va-item">
+                        <label for="contrastSensitivityOD">Contrast Sensitivity OD</label>
+                        <input type="text" id="contrastSensitivityOD" name="contrastSensitivityOD" placeholder="e.g., Pelli-Robson 1.80 log units">
+                    </div>
+                    <div class="form-group va-item">
+                        <label for="contrastSensitivityOS">Contrast Sensitivity OS</label>
+                        <input type="text" id="contrastSensitivityOS" name="contrastSensitivityOS" placeholder="e.g., Pelli-Robson 1.70 log units">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="pupils">Pupils</label>
+                    <select id="pupils" name="pupils" aria-controls="pupils_details">
+                        <option value="PERRLA">PERRLA</option>
+                        <option value="APD OD">APD OD</option>
+                        <option value="APD OS">APD OS</option>
+                        <option value="Irregular Shape">Irregular Shape</option>
+                        <option value="Fixed/Dilated">Fixed/Dilated</option>
+                        <option value="Fixed/Constricted">Fixed/Constricted</option>
+                        <option value="Other">Other (describe below)</option>
+                    </select>
+                    <textarea id="pupils_details" name="pupils_details" rows="1" placeholder="Describe pupils if 'Other' selected or for additional details." class="conditional-group" aria-expanded="false" aria-describedby="pupils"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="eoms">Extraocular Motility (EOMs)</label>
+                    <select id="eoms" name="eoms" aria-controls="eoms_details">
+                        <option value="Full and Smooth">Full and Smooth in all 9 gazes</option>
+                        <option value="Restricted">Restricted</option>
+                        <option value="Painful">Painful</option>
+                        <option value="Overaction">Overaction</option>
+                        <option value="Underaction">Underaction</option>
+                        <option value="Other">Other (describe below)</option>
+                    </select>
+                    <textarea id="eoms_details" name="eoms_details" rows="1" placeholder="Describe EOMs if 'Other' selected or for additional details." class="conditional-group" aria-expanded="false" aria-describedby="eoms"></textarea>
+                </div>
+                <div class="va-row">
+                    <div class="form-group va-item">
+                        <label>Cover Test (Distance)</label>
+                        <input type="text" name="coverTestDistance" placeholder="e.g., Ortho, 1^ EXO">
+                    </div>
+                    <div class="form-group va-item">
+                        <label>Cover Test (Near)</label>
+                        <input type="text" name="coverTestNear" placeholder="e.g., 2^ XP">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="stereopsis">Stereopsis</label>
+                    <select id="stereopsis" name="stereopsis" aria-controls="stereopsis_details">
+                        <option value="">Select...</option>
+                        <option value="Present">Present</option>
+                        <option value="Absent">Absent</option>
+                    </select>
+                    <input type="text" id="stereopsis_details" name="stereopsis_details" placeholder="e.g., 40 seconds of arc (Titmus Fly Test) or reason for absence." class="conditional-group" aria-expanded="false" aria-describedby="stereopsis">
+                </div>
+                <div class="form-group">
+                    <label for="colorVision">Color Vision</label>
+                    <select id="colorVision" name="colorVision" aria-controls="colorVision_details">
+                        <option value="">Select...</option>
+                        <option value="Normal">Normal</option>
+                        <option value="Red-Green Deficiency">Red-Green Deficiency</option>
+                        <option value="Blue-Yellow Deficiency">Blue-Yellow Deficiency</option>
+                        <option value="Acquired Deficiency">Acquired Deficiency</option>
+                        <option value="Not Tested">Not Tested</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <input type="text" id="colorVision_details" name="colorVision_details" placeholder="e.g., Ishihara plates 1-15 correct. Specify deficiency type." class="conditional-group" aria-expanded="false" aria-describedby="colorVision">
+                </div>
+                <div class="va-row">
+                    <div class="form-group va-item">
+                        <label for="amslerGridOD">Amsler Grid OD</label>
+                        <select id="amslerGridOD" name="amslerGridOD" aria-controls="amslerGridOD_details">
+                            <option value="WNL">WNL</option>
+                            <option value="Metamorphopsia">Metamorphopsia</option>
+                            <option value="Scotoma">Scotoma</option>
+                            <option value="Distortion">Distortion</option>
+                            <option value="Not Tested">Not Tested</option>
+                        </select>
+                        <input type="text" id="amslerGridOD_details" name="amslerGridOD_details" placeholder="Details if not WNL." class="conditional-group" aria-expanded="false" aria-describedby="amslerGridOD">
+                    </div>
+                    <div class="form-group va-item">
+                        <label for="amslerGridOS">Amsler Grid OS</label>
+                        <select id="amslerGridOS" name="amslerGridOS" aria-controls="amslerGridOS_details">
+                            <option value="WNL">WNL</option>
+                            <option value="Metamorphopsia">Metamorphopsia</option>
+                            <option value="Scotoma">Scotoma</option>
+                            <option value="Distortion">Distortion</option>
+                            <option value="Not Tested">Not Tested</option>
+                        </select>
+                        <input type="text" id="amslerGridOS_details" name="amslerGridOS_details" placeholder="Details if not WNL." class="conditional-group" aria-expanded="false" aria-describedby="amslerGridOS">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lidPosition">Lid Position</label>
+                    <select id="lidPosition" name="lidPosition">
+                        <option value="WNL">WNL</option>
+                        <option value="Ptosis">Ptosis</option>
+                        <option value="Lagophthalmos">Lagophthalmos</option>
+                        <option value="Retraction">Retraction</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="lidMarginHealth">Lid Margin Health</label>
+                    <select id="lidMarginHealth" name="lidMarginHealth">
+                        <option value="WNL">WNL</option>
+                        <option value="Blepharitis (Ant)">Blepharitis (Anterior)</option>
+                        <option value="Blepharitis (Post)">Blepharitis (Posterior)</option>
+                        <option value="MGD">MGD</option>
+                        <option value="Demodex">Demodex</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+
+                <div class="iop-label">Intraocular Pressure (IOP)</div>
+                <div class="iop-row">
+                    <div class="form-group iop-item">
+                        <label>IOP OD (mmHg)</label>
+                        <input type="text" name="iopOD" placeholder="e.g., 15 @ 10:30 AM">
+                    </div>
+                    <div class="form-group iop-item">
+                        <label>IOP OS (mmHg)</label>
+                        <input type="text" name="iopOS" placeholder="e.g., 16 @ 10:30 AM">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="iopMethod">Method</label>
+                    <select id="iopMethod" name="iopMethod">
+                        <option value="">Select...</option>
+                        <option value="NCT">NCT</option>
+                        <option value="Goldmann">Goldmann Applanation Tonometry</option>
+                        <option value="Icare">Icare</option>
+                        <option value="Tono-Pen">Tono-Pen</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="cvf">Confrontation Visual Fields (CVF)</label>
+                    <textarea id="cvf" name="cvf" rows="1" placeholder="e.g., Full to finger counting OU. No gross defects."></textarea>
+                </div>
+
+                <div class="refraction-label">Refraction & Prescription</div>
+                <div class="refraction-row">
+                    <div class="form-group">
+                        <label>Auto-Refractor OD</label>
+                        <input type="text" name="autoRefractorOD" placeholder="e.g., -1.75 -0.25 x 180">
+                    </div>
+                    <div class="form-group">
+                        <label>Auto-Refractor OS</label>
+                        <input type="text" name="autoRefractorOS" placeholder="e.g., -1.50 DS">
+                    </div>
+                </div>
+                <div class="refraction-row">
+                    <div class="form-group">
+                        <label>Manifest Refraction OD (Sphere/Cyl/Axis/Add)</label>
+                        <input type="text" name="manifestRefractionOD" placeholder="e.g., -2.00 -0.50 x 180 Add +2.00">
+                    </div>
+                    <div class="form-group">
+                        <label>Manifest Refraction OS (Sphere/Cyl/Axis/Add)</label>
+                        <input type="text" name="manifestRefractionOS" placeholder="e.g., -1.75 DS Add +2.00">
+                    </div>
+                </div>
+                <div class="refraction-row">
+                    <div class="form-group">
+                        <label>BCVA with MRx OD</label>
+                        <input type="text" name="bcvaMrxOD" placeholder="e.g., 20/20 (6/6)">
+                    </div>
+                    <div class="form-group va-item">
+                        <label>BCVA with MRx OS</label>
+                        <input type="text" name="bcvaMrxOS" placeholder="e.g., 20/20 (6/6)">
+                    </div>
+                </div>
+                <div class="refraction-row">
+                    <div class="form-group">
+                        <label>Cycloplegic Refraction OD (Optional)</label>
+                        <input type="text" name="cycloplegicRefractionOD" placeholder="e.g., -1.75 -0.50 x 175">
+                    </div>
+                    <div class="form-group">
+                        <label>Cycloplegic Refraction OS (Optional)</label>
+                        <input type="text" name="cycloplegicRefractionOS" placeholder="e.g., -1.50 DS">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lensType">Lens Type (Current/New)</label>
+                    <select id="lensType" name="lensType">
+                        <option value="">Select...</option>
+                        <option value="single-vision">Single Vision</option>
+                        <option value="bifocal">Bifocal</option>
+                        <option value="progressive">Progressive</option>
+                        <option value="task-specific">Task-specific</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="prism-row">
+                    <div class="od-os-pair">
+                        <div class="form-group">
+                            <label for="prismDioptersOD">Prism OD Diopters</label>
+                            <input type="number" id="prismDioptersOD" name="prismDioptersOD" step="0.5" placeholder="e.g., 2.0">
+                        </div>
+                        <div class="form-group">
+                            <label for="prismBaseOD">Base</label>
+                            <select id="prismBaseOD" name="prismBaseOD">
+                                <option value="">-</option>
+                                <option value="BI">BI</option>
+                                <option value="BO">BO</option>
+                                <option value="BU">BU</option>
+                                <option value="BD">BD</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="od-os-pair">
+                        <div class="form-group">
+                            <label for="prismDioptersOS">Prism OS Diopters</label>
+                            <input type="number" id="prismDioptersOS" name="prismDioptersOS" step="0.5" placeholder="e.g., 2.0">
+                        </div>
+                        <div class="form-group">
+                            <label for="prismBaseOS">Base</label>
+                            <select id="prismBaseOS" name="prismBaseOS">
+                                <option value="">-</option>
+                                <option value="BI">BI</option>
+                                <option value="BO">BO</option>
+                                <option value="BU">BU</option>
+                                <option value="BD">BD</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Slit Lamp Examination (Anterior Segment)</legend>
+                <div class="form-group">
+                    <label>Corneal Sensitivity OD</label>
+                    <select id="cornealSensitivityOD" name="cornealSensitivityOD">
+                        <option value="Normal">Normal</option>
+                        <option value="Decreased">Decreased</option>
+                        <option value="Absent">Absent</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Corneal Sensitivity OS</label>
+                    <select id="cornealSensitivityOS" name="cornealSensitivityOS">
+                        <option value="Normal">Normal</option>
+                        <option value="Decreased">Decreased</option>
+                        <option value="Absent">Absent</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="tearMeniscusHeightOD">Tear Meniscus Height (TMH) OD</label>
+                    <input type="text" id="tearMeniscusHeightOD" name="tearMeniscusHeightOD" placeholder="e.g., 0.2mm">
+                </div>
+                <div class="form-group">
+                    <label for="tearMeniscusHeightOS">Tear Meniscus Height (TMH) OS</label>
+                    <input type="text" id="tearMeniscusHeightOS" name="tearMeniscusHeightOS" placeholder="e.g., 0.3mm">
+                </div>
+                <div class="form-group">
+                    <label>Lids & Lashes OD</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="lidsLashesOD_wnl" name="lidsLashesOD_status" value="WNL" checked aria-controls="lidsLashesOD">
+                        <label for="lidsLashesOD_wnl">WNL</label>
+                        <input type="radio" id="lidsLashesOD_notwnl" name="lidsLashesOD_status" value="Not WNL" aria-controls="lidsLashesOD">
+                        <label for="lidsLashesOD_notwnl">Not WNL (describe)</label>
+                    </div>
+                    <textarea id="lidsLashesOD" name="lidsLashesOD" rows="1" placeholder="e.g., Blepharitis, Hordeolum, Chalazion." class="conditional-group" aria-expanded="false" aria-describedby="lidsLashesOD_wnl lidsLashesOD_notwnl"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Lids & Lashes OS</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="lidsLashesOS_wnl" name="lidsLashesOS_status" value="WNL" checked aria-controls="lidsLashesOS">
+                        <label for="lidsLashesOS_wnl">WNL</label>
+                        <input type="radio" id="lidsLashesOS_notwnl" name="lidsLashesOS_status" value="Not WNL" aria-controls="lidsLashesOS">
+                        <label for="lidsLashesOS_notwnl">Not WNL (describe)</label>
+                    </div>
+                    <textarea id="lidsLashesOS" name="lidsLashesOS" rows="1" placeholder="e.g., Blepharitis, Hordeolum, Chalazion." class="conditional-group" aria-expanded="false" aria-describedby="lidsLashesOS_wnl lidsLashesOS_notwnl"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Conjunctiva & Sclera OD</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="conjunctivaScleraOD_wnl" name="conjunctivaScleraOD_status" value="WNL" checked aria-controls="conjunctivaScleraOD">
+                        <label for="conjunctivaScleraOD_wnl">WNL</label>
+                        <input type="radio" id="conjunctivaScleraOD_notwnl" name="conjunctivaScleraOD_status" value="Not WNL" aria-controls="conjunctivaScleraOD">
+                        <label for="conjunctivaScleraOD_notwnl">Not WNL (describe)</label>
+                    </div>
+                    <textarea id="conjunctivaScleraOD" name="conjunctivaScleraOD" rows="1" placeholder="e.g., Clear, quiet, injection, papillae/follicles." class="conditional-group" aria-expanded="false" aria-describedby="conjunctivaScleraOD_wnl conjunctivaScleraOD_notwnl"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Conjunctiva & Sclera OS</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="conjunctivaScleraOS_wnl" name="conjunctivaScleraOS_status" value="WNL" checked aria-controls="conjunctivaScleraOS">
+                        <label for="conjunctivaScleraOS_wnl">WNL</label>
+                        <input type="radio" id="conjunctivaScleraOS_notwnl" name="conjunctivaScleraOS_status" value="Not WNL" aria-controls="conjunctivaScleraOS">
+                        <label for="conjunctivaScleraOS_notwnl">Not WNL (describe)</label>
+                    </div>
+                    <textarea id="conjunctivaScleraOS" name="conjunctivaScleraOS" rows="1" placeholder="e.g., Clear, quiet, injection, papillae/follicles." class="conditional-group" aria-expanded="false" aria-describedby="conjunctivaScleraOS_wnl conjunctivaScleraOS_notwnl"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="conjunctivalInjectionOD">Conjunctival Injection Pattern OD</label>
+                    <select id="conjunctivalInjectionOD" name="conjunctivalInjectionOD">
+                        <option value="WNL">WNL</option>
+                        <option value="Diffuse">Diffuse</option>
+                        <option value="Ciliary">Ciliary</option>
+                        <option value="Sectoral">Sectoral</option>
+                        <option value="Mixed">Mixed</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="conjunctivalInjectionOS">Conjunctival Injection Pattern OS</label>
+                    <select id="conjunctivalInjectionOS" name="conjunctivalInjectionOS">
+                        <option value="WNL">WNL</option>
+                        <option value="Diffuse">Diffuse</option>
+                        <option value="Ciliary">Ciliary</option>
+                        <option value="Sectoral">Sectoral</option>
+                        <option value="Mixed">Mixed</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Cornea OD</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="corneaOD_wnl" name="corneaOD_status" value="WNL" checked aria-controls="corneaOD">
+                        <label for="corneaOD_wnl">WNL</label>
+                        <input type="radio" id="corneaOD_notwnl" name="corneaOD_status" value="Not WNL" aria-controls="corneaOD">
+                        <label for="corneaOD_notwnl">Not WNL (describe)</label>
+                    </div>
+                    <textarea id="corneaOD" name="corneaOD" rows="1" placeholder="e.g., Clear, compact, smooth. Staining, edema, infiltrates." class="conditional-group" aria-expanded="false" aria-describedby="corneaOD_wnl corneaOD_notwnl"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Cornea OS</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="corneaOS_wnl" name="corneaOS_status" value="WNL" checked aria-controls="corneaOS">
+                        <label for="corneaOS_wnl">WNL</label>
+                        <input type="radio" id="corneaOS_notwnl" name="corneaOS_status" value="Not WNL" aria-controls="corneaOS">
+                        <label for="corneaOS_notwnl">Not WNL (describe)</label>
+                    </div>
+                    <textarea id="corneaOS" name="corneaOS" rows="1" placeholder="e.g., Clear, compact, smooth. Staining, edema, infiltrates." class="conditional-group" aria-expanded="false" aria-describedby="corneaOS_wnl corneaOS_notwnl"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Anterior Chamber OD</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="anteriorChamberOD_wnl" name="anteriorChamberOD_status" value="WNL" checked aria-controls="anteriorChamberOD">
+                        <label for="anteriorChamberOD_wnl">WNL</label>
+                        <input type="radio" id="anteriorChamberOD_notwnl" name="anteriorChamberOD_status" value="Not WNL" aria-controls="anteriorChamberOD">
+                        <label for="anteriorChamberOD_notwnl">Not WNL (describe)</label>
+                    </div>
+                    <textarea id="anteriorChamberOD" name="anteriorChamberOD" rows="1" placeholder="e.g., Deep & quiet. Cell/flare, hyphema." class="conditional-group" aria-expanded="false" aria-describedby="anteriorChamberOD_wnl anteriorChamberOD_notwnl"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Anterior Chamber OS</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="anteriorChamberOS_wnl" name="anteriorChamberOS_status" value="WNL" checked aria-controls="anteriorChamberOS">
+                        <label for="anteriorChamberOS_wnl">WNL</label>
+                        <input type="radio" id="anteriorChamberOS_notwnl" name="anteriorChamberOS_status" value="Not WNL" aria-controls="anteriorChamberOS">
+                        <label for="anteriorChamberOS_notwnl">Not WNL (describe)</label>
+                    </div>
+                    <textarea id="anteriorChamberOS" name="anteriorChamberOS" rows="1" placeholder="e.g., Deep & quiet. Cell/flare, hyphema." class="conditional-group" aria-expanded="false" aria-describedby="anteriorChamberOS_wnl anteriorChamberOS_notwnl"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="acDepthOD">AC Depth (Van Herick) OD</label>
+                    <input type="text" id="acDepthOD" name="acDepthOD" placeholder="e.g., Grade 4">
+                </div>
+                <div class="form-group">
+                    <label for="acDepthOS">AC Depth (Van Herick) OS</label>
+                    <input type="text" id="acDepthOS" name="acDepthOS" placeholder="e.g., Grade 4">
+                </div>
+                <div class="form-group">
+                    <label>Iris OD</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="irisOD_wnl" name="irisOD_status" value="WNL" checked aria-controls="irisOD">
+                        <label for="irisOD_wnl">WNL</label>
+                        <input type="radio" id="irisOD_notwnl" name="irisOD_status" value="Not WNL" aria-controls="irisOD">
+                        <label for="irisOD_notwnl">Not WNL (describe)</label>
+                    </div>
+                    <textarea id="irisOD" name="irisOD" rows="1" placeholder="e.g., Flat, intact, good crypts. Neovascularization, atrophy." class="conditional-group" aria-expanded="false" aria-describedby="irisOD_wnl irisOD_notwnl"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Iris OS</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="irisOS_wnl" name="irisOS_status" value="WNL" checked aria-controls="irisOS">
+                        <label for="irisOS_wnl">WNL</label>
+                        <input type="radio" id="irisOS_notwnl" name="irisOS_status" value="Not WNL" aria-controls="irisOS">
+                        <label for="irisOS_notwnl">Not WNL (describe)</label>
+                    </div>
+                    <textarea id="irisOS" name="irisOS" rows="1" placeholder="e.g., Flat, intact, good crypts. Neovascularization, atrophy." class="conditional-group" aria-expanded="false" aria-describedby="irisOS_wnl irisOS_notwnl"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="lensOD_status">Lens OD</label>
+                    <select id="lensOD_status" name="lensOD_status" aria-controls="lensOD_details">
+                        <option value="clear">Clear</option>
+                        <option value="ns-1">NS 1+</option>
+                        <option value="ns-2">NS 2+</option>
+                        <option value="ns-3">NS 3+</option>
+                        <option value="ns-4">NS 4+</option>
+                        <option value="cortical-1">Cortical 1+</option>
+                        <option value="cortical-2">Cortical 2+</option>
+                        <option value="cortical-3">Cortical 3+</option>
+                        <option value="psc-1">PSC 1+</option>
+                        <option value="psc-2">PSC 2+</option>
+                        <option value="psc-3">PSC 3+</option>
+                        <option value="other">Other Pathology</option>
+                    </select>
+                    <textarea id="lensOD_details" name="lensOD_details" rows="1" placeholder="Describe other pathology if selected." class="conditional-group" aria-expanded="false" aria-describedby="lensOD_status"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="lensOD_opacityLocation">Lens Opacity Location OD</label>
+                    <select id="lensOD_opacityLocation" name="lensOD_opacityLocation">
+                        <option value="">N/A</option>
+                        <option value="Central">Central</option>
+                        <option value="Peripheral">Peripheral</option>
+                        <option value="Posterior">Posterior</option>
+                        <option value="Diffuse">Diffuse</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="lensOS_status">Lens OS</label>
+                    <select id="lensOS_status" name="lensOS_status" aria-controls="lensOS_details">
+                        <option value="clear">Clear</option>
+                        <option value="ns-1">NS 1+</option>
+                        <option value="ns-2">NS 2+</option>
+                        <option value="ns-3">NS 3+</option>
+                        <option value="ns-4">NS 4+</option>
+                        <option value="cortical-1">Cortical 1+</option>
+                        <option value="cortical-2">Cortical 2+</option>
+                        <option value="cortical-3">Cortical 3+</option>
+                        <option value="psc-1">PSC 1+</option>
+                        <option value="psc-2">PSC 2+</option>
+                        <option value="psc-3">PSC 3+</option>
+                        <option value="other">Other Pathology</option>
+                    </select>
+                    <textarea id="lensOS_details" name="lensOS_details" rows="1" placeholder="Describe other pathology if selected." class="conditional-group" aria-expanded="false" aria-describedby="lensOS_status"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="lensOS_opacityLocation">Lens Opacity Location OS</label>
+                    <select id="lensOS_opacityLocation" name="lensOS_opacityLocation">
+                        <option value="">N/A</option>
+                        <option value="Central">Central</option>
+                        <option value="Peripheral">Peripheral</option>
+                        <option value="Posterior">Posterior</option>
+                        <option value="Diffuse">Diffuse</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="gonioscopyPerformedOD_yes">Gonioscopy OD Performed?</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="gonioscopyPerformedOD_yes" name="gonioscopyPerformedOD" value="Yes" aria-controls="gonioscopyOD">
+                        <label for="gonioscopyPerformedOD_yes">Yes</label>
+                        <input type="radio" id="gonioscopyPerformedOD_no" name="gonioscopyPerformedOD" value="No" checked aria-controls="gonioscopyOD">
+                        <label for="gonioscopyPerformedOD_no">No</label>
+                    </div>
+                    <textarea id="gonioscopyOD" name="gonioscopyOD" rows="1" placeholder="e.g., Open to CBB 360 degrees, no peripheral anterior synechiae." class="conditional-group" aria-expanded="false" aria-describedby="gonioscopyPerformedOD_yes gonioscopyPerformedOD_no"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="gonioscopyPerformedOS_yes">Gonioscopy OS Performed?</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="gonioscopyPerformedOS_yes" name="gonioscopyPerformedOS" value="Yes" aria-controls="gonioscopyOS">
+                        <label for="gonioscopyPerformedOS_yes">Yes</label>
+                        <input type="radio" id="gonioscopyPerformedOS_no" name="gonioscopyPerformedOS" value="No" checked aria-controls="gonioscopyOS">
+                        <label for="gonioscopyPerformedOS_no">No</label>
+                    </div>
+                    <textarea id="gonioscopyOS" name="gonioscopyOS" rows="1" placeholder="e.g., Open to CBB 360 degrees, no peripheral anterior synechiae." class="conditional-group" aria-expanded="false" aria-describedby="gonioscopyPerformedOS_yes gonioscopyPerformedOS_no"></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Posterior Segment Examination (DFE)</legend>
+                <div class="form-group">
+                    <label>Vitreous OD</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="vitreousOD_wnl" name="vitreousOD_status" value="WNL" checked aria-controls="vitreousOD">
+                        <label for="vitreousOD_wnl">WNL</label>
+                        <input type="radio" id="vitreousOD_notwnl" name="vitreousOD_status" value="Not WNL" aria-controls="vitreousOD">
+                        <label for="vitreousOD_notwnl">Not WNL (describe)</label>
+                    </div>
+                    <textarea id="vitreousOD" name="vitreousOD" rows="1" placeholder="e.g., Clear, no cells or pigment. PVD noted." class="conditional-group" aria-expanded="false" aria-describedby="vitreousOD_wnl vitreousOD_notwnl"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Vitreous OS</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="vitreousOS_wnl" name="vitreousOS_status" value="WNL" checked aria-controls="vitreousOS">
+                        <label for="vitreousOS_wnl">WNL</label>
+                        <input type="radio" id="vitreousOS_notwnl" name="vitreousOS_status" value="Not WNL" aria-controls="vitreousOS">
+                        <label for="vitreousOS_notwnl">Not WNL (describe)</label>
+                    </div>
+                    <textarea id="vitreousOS" name="vitreousOS" rows="1" placeholder="e.g., Clear." class="conditional-group" aria-expanded="false" aria-describedby="vitreousOS_wnl vitreousOS_notwnl"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="opticDiscOD_status">Optic Disc OD</label>
+                    <select id="opticDiscOD_status" name="opticDiscOD_status" aria-controls="opticDiscOD">
+                        <option value="WNL">Pink, sharp margins</option>
+                        <option value="Pallor">Pallor</option>
+                        <option value="Edema">Edema</option>
+                        <option value="Cupping">Cupping (specify ratio below)</option>
+                        <option value="Other">Other (describe below)</option>
+                    </select>
+                    <textarea id="opticDiscOD" name="opticDiscOD" rows="1" placeholder="Describe other findings." class="conditional-group" aria-expanded="false" aria-describedby="opticDiscOD_status"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="opticDiscOS_status">Optic Disc OS</label>
+                    <select id="opticDiscOS_status" name="opticDiscOS_status" aria-controls="opticDiscOS">
+                        <option value="WNL">Pink, sharp margins</option>
+                        <option value="Pallor">Pallor</option>
+                        <option value="Edema">Edema</option>
+                        <option value="Cupping">Cupping (specify ratio below)</option>
+                        <option value="Other">Other (describe below)</option>
+                    </select>
+                    <textarea id="opticDiscOS" name="opticDiscOS" rows="1" placeholder="Describe other findings." class="conditional-group" aria-expanded="false" aria-describedby="opticDiscOS_status"></textarea>
+                </div>
+                <div class="va-row">
+                    <div class="form-group">
+                        <label for="cupDiscRatioOD">Cup/Disc Ratio OD</label>
+                        <input type="text" id="cupDiscRatioOD" name="cupDiscRatioOD" placeholder="e.g., 0.3 H / 0.4 V">
+                    </div>
+                    <div class="form-group">
+                        <label for="cupDiscRatioOS">Cup/Disc Ratio OS</label>
+                        <input type="text" id="cupDiscRatioOS" name="cupDiscRatioOS" placeholder="e.g., 0.3 H / 0.3 V">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Optic Disc Hemorrhage OD?</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="discHemorrhageODYes" name="discHemorrhageOD" value="Yes">
+                        <label for="discHemorrhageODYes">Yes</label>
+                        <input type="radio" id="discHemorrhageODNo" name="discHemorrhageOD" value="No" checked>
+                        <label for="discHemorrhageODNo">No</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Optic Disc Hemorrhage OS?</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="discHemorrhageOSYes" name="discHemorrhageOS" value="Yes">
+                        <label for="discHemorrhageOSYes">Yes</label>
+                        <input type="radio" id="discHemorrhageOSNo" name="discHemorrhageOS" value="No" checked>
+                        <label for="discHemorrhageOSNo">No</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="rnflAppearanceOD">RNFL Appearance OD</label>
+                    <select id="rnflAppearanceOD" name="rnflAppearanceOD">
+                        <option value="WNL">WNL</option>
+                        <option value="Thinning (Diffuse)">Thinning (Diffuse)</option>
+                        <option value="Thinning (Localized)">Thinning (Localized)</option>
+                        <option value="Not Assessed">Not Assessed</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="rnflAppearanceOS">RNFL Appearance OS</label>
+                    <select id="rnflAppearanceOS" name="rnflAppearanceOS">
+                        <option value="WNL">WNL</option>
+                        <option value="Thinning (Diffuse)">Thinning (Diffuse)</option>
+                        <option value="Thinning (Localized)">Thinning (Localized)</option>
+                        <option value="Not Assessed">Not Assessed</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="maculaOD_status">Macula OD</label>
+                    <select id="maculaOD_status" name="maculaOD_status" aria-controls="maculaOD">
+                        <option value="WNL">Flat, good foveal reflex</option>
+                        <option value="Drusen">Drusen</option>
+                        <option value="Edema">Edema</option>
+                        <option value="Hemorrhage">Hemorrhage</option>
+                        <option value="Cyst">Cyst</option>
+                        <option value="Elevated">Elevated</option>
+                        <option value="Other">Other (describe below)</option>
+                    </select>
+                    <textarea id="maculaOD" name="maculaOD" rows="1" placeholder="Describe other macula findings." class="conditional-group" aria-expanded="false" aria-describedby="maculaOD_status"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="maculaOS_status">Macula OS</label>
+                    <select id="maculaOS_status" name="maculaOS_status" aria-controls="maculaOS">
+                        <option value="WNL">Flat, good foveal reflex</option>
+                        <option value="Drusen">Drusen</option>
+                        <option value="Edema">Edema</option>
+                        <option value="Hemorrhage">Hemorrhage</option>
+                        <option value="Cyst">Cyst</option>
+                        <option value="Elevated">Elevated</option>
+                        <option value="Other">Other (describe below)</option>
+                    </select>
+                    <textarea id="maculaOS" name="maculaOS" rows="1" placeholder="Describe other macula findings." class="conditional-group" aria-expanded="false" aria-describedby="maculaOS_status"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="macularPigmentOD">Macular Pigment (RPE) OD</label>
+                    <select id="macularPigmentOD" name="macularPigmentOD">
+                        <option value="WNL">WNL</option>
+                        <option value="Mottling">Mottling</option>
+                        <option value="Atrophy">Atrophy</option>
+                        <option value="Hyper/Hypopigmentation">Hyper/Hypopigmentation</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="macularPigmentOS">Macular Pigment (RPE) OS</label>
+                    <select id="macularPigmentOS" name="macularPigmentOS">
+                        <option value="WNL">WNL</option>
+                        <option value="Mottling">Mottling</option>
+                        <option value="Atrophy">Atrophy</option>
+                        <option value="Hyper/Hypopigmentation">Hyper/Hypopigmentation</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Vessels OD</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="vesselsOD_wnl" name="vesselsOD_status" value="WNL" checked aria-controls="vesselsOD">
+                        <label for="vesselsOD_wnl">WNL</label>
+                        <input type="radio" id="vesselsOD_notwnl" name="vesselsOD_status" value="Not WNL" aria-controls="vesselsOD">
+                        <label for="vesselsOD_notwnl">Not WNL (describe)</label>
+                    </div>
+                    <textarea id="vesselsOD" name="vesselsOD" rows="1" placeholder="e.g., Normal caliber and course. A/V nicking, tortuosity." class="conditional-group" aria-expanded="false" aria-describedby="vesselsOD_wnl vesselsOD_notwnl"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Vessels OS</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="vesselsOS_wnl" name="vesselsOS_status" value="WNL" checked aria-controls="vesselsOS">
+                        <label for="vesselsOS_wnl">WNL</label>
+                        <input type="radio" id="vesselsOS_notwnl" name="vesselsOS_status" value="Not WNL" aria-controls="vesselsOS">
+                        <label for="vesselsOS_notwnl">Not WNL (describe)</label>
+                    </div>
+                    <textarea id="vesselsOS" name="vesselsOS" rows="1" placeholder="e.g., Normal caliber and course. A/V nicking, tortuosity." class="conditional-group" aria-expanded="false" aria-describedby="vesselsOS_wnl vesselsOS_notwnl"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="vesselTortuosityOD">Vessel Tortuosity/Sheathing OD</label>
+                    <select id="vesselTortuosityOD" name="vesselTortuosityOD">
+                        <option value="Normal">Normal</option>
+                        <option value="Mild">Mild</option>
+                        <option value="Moderate">Moderate</option>
+                        <option value="Severe">Severe</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="vesselTortuosityOS">Vessel Tortuosity/Sheathing OS</label>
+                    <select id="vesselTortuosityOS" name="vesselTortuosityOS">
+                        <option value="Normal">Normal</option>
+                        <option value="Mild">Mild</option>
+                        <option value="Moderate">Moderate</option>
+                        <option value="Severe">Severe</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="peripheryOD_status">Periphery (Dilated) OD</label>
+                    <select id="peripheryOD_status" name="peripheryOD_status" aria-controls="peripheryOD">
+                        <option value="WNL">Flat, attached, no breaks or lesions</option>
+                        <option value="Attached">Attached</option>
+                        <option value="Detachment">Detachment</option>
+                        <option value="Holes/Tears">Holes/Tears</option>
+                        <option value="Degeneration">Degeneration</option>
+                        <option value="Other">Other (describe below)</option>
+                    </select>
+                    <textarea id="peripheryOD" name="peripheryOD" rows="2" placeholder="Describe other peripheral findings." class="conditional-group" aria-expanded="false" aria-describedby="peripheryOD_status"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="peripheryOS_status">Periphery (Dilated) OS</label>
+                    <select id="peripheryOS_status" name="peripheryOS_status" aria-controls="peripheryOS">
+                        <option value="WNL">Flat, attached, no breaks or lesions</option>
+                        <option value="Attached">Attached</option>
+                        <option value="Detachment">Detachment</option>
+                        <option value="Holes/Tears">Holes/Tears</option>
+                        <option value="Degeneration">Degeneration</option>
+                        <option value="Other">Other (describe below)</option>
+                    </select>
+                    <textarea id="peripheryOS" name="peripheryOS" rows="2" placeholder="Describe other peripheral findings." class="conditional-group" aria-expanded="false" aria-describedby="peripheryOS_status"></textarea>
+                </div>
+                 <div class="form-group">
+                    <label for="peripheralLesionOD">Peripheral Lesion OD</label>
+                    <select id="peripheralLesionOD" name="peripheralLesionOD" aria-controls="peripheralLesionOD_details">
+                        <option value="None">None</option>
+                        <option value="Lattice Degeneration">Lattice Degeneration</option>
+                        <option value="Retinal Hole">Retinal Hole</option>
+                        <option value="Retinal Tear">Retinal Tear</option>
+                        <option value="CHRPE">CHRPE</option>
+                        <option value="Nevus">Nevus</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <textarea id="peripheralLesionOD_details" name="peripheralLesionOD_details" rows="1" placeholder="Location/Size/Pigmentation/Other details" class="conditional-group" aria-expanded="false" aria-describedby="peripheralLesionOD"></textarea>
+                </div>
+                 <div class="form-group">
+                    <label for="peripheralLesionOS">Peripheral Lesion OS</label>
+                    <select id="peripheralLesionOS" name="peripheralLesionOS" aria-controls="peripheralLesionOS_details">
+                        <option value="None">None</option>
+                        <option value="Lattice Degeneration">Lattice Degeneration</option>
+                        <option value="Retinal Hole">Retinal Hole</option>
+                        <option value="Retinal Tear">Retinal Tear</option>
+                        <option value="CHRPE">CHRPE</option>
+                        <option value="Nevus">Nevus</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <textarea id="peripheralLesionOS_details" name="peripheralLesionOS_details" rows="1" placeholder="Location/Size/Pigmentation/Other details" class="conditional-group" aria-expanded="false" aria-describedby="peripheralLesionOS"></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Investigations</legend>
+                <div class="form-group">
+                    <label for="octFindings">OCT Findings</label>
+                    <textarea id="octFindings" name="octFindings" rows="3" placeholder="e.g., Macular OCT OU: Normal retinal layers. RNFL OCT OU: Within normal limits."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="visualFieldFindings">Visual Field Findings</label>
+                    <textarea id="visualFieldFindings" name="visualFieldFindings" rows="3" placeholder="e.g., Humphrey 24-2 SITA-Standard: Reliable, no significant defects OU."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="fundusPhotographyFindings">Fundus Photography Findings</label>
+                    <textarea id="fundusPhotographyFindings" name="fundusPhotographyFindings" rows="3" placeholder="e.g., Documented optic disc and macular appearance as noted in exam."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="cornealTopographyFindings">Corneal Topography Findings</label>
+                    <textarea id="cornealTopographyFindings" name="cornealTopographyFindings" rows="2" placeholder="e.g., OD: Regular astigmatism, with-the-rule."></textarea>
+                </div>
+                <div class="va-row">
+                    <div class="form-group va-item">
+                        <label for="pachymetryOD">Pachymetry (CCT) OD</label>
+                        <input type="number" id="pachymetryOD" name="pachymetryOD" placeholder="e.g., 540 microns">
+                    </div>
+                    <div class="form-group va-item">
+                        <label for="pachymetryOS">Pachymetry (CCT) OS</label>
+                        <input type="number" id="pachymetryOS" name="pachymetryOS" placeholder="e.g., 535 microns">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="specularMicroscopy">Specular Microscopy</label>
+                    <textarea id="specularMicroscopy" name="specularMicroscopy" rows="2" placeholder="e.g., Endothelial cell density, pleomorphism, polymegethism."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="meibography">Meibography</label>
+                    <textarea id="meibography" name="meibography" rows="2" placeholder="e.g., Meibomian gland loss (Grade 1/2/3)."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="dryEyeTests">Dry Eye Specific Tests (OSDI, Schirmer, etc.)</label>
+                    <textarea id="dryEyeTests" name="dryEyeTests" rows="3" placeholder="e.g., OSDI Score: 45. Schirmer I OD: 5mm, OS: 7mm."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="fundusAutofluorescence">Fundus Autofluorescence (FAF)</label>
+                    <textarea id="fundusAutofluorescence" name="fundusAutofluorescence" rows="2" placeholder="e.g., Areas of hypo/hyper-autofluorescence (for AMD, inherited retinal dystrophies)."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="otherInvestigations">Other Investigations</label>
+                    <textarea id="otherInvestigations" name="otherInvestigations" rows="3" placeholder="e.g., A-scan: Axial Length OD 24.5mm, OS 24.3mm."></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Assessment & Plan</legend>
+                <div class="form-group">
+                    <label for="assessmentDiagnoses">Assessment / Diagnoses <sup>*</sup></label>
+                    <textarea id="assessmentDiagnoses" name="assessmentDiagnoses" rows="5" placeholder="1. Myopia OU (H52.1)&#10;2. Presbyopia OU (H52.4)&#10;3. Dry Eye Syndrome OU (Mild) (H04.123)" required aria-required="true"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="plan">Plan <sup>*</sup></label>
+                    <textarea id="plan" name="plan" rows="5" placeholder="1. Rx Spectacles: ...&#10;2. Artificial Tears QID OU&#10;3. Patient education on ...&#10;4. RTC 1 year or PRN" required aria-required="true"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="prognosis">Prognosis (Overall)</label>
+                    <textarea id="prognosis" name="prognosis" rows="2" placeholder="e.g., Good with current management."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="followUpInstructions">Follow Up Instructions</label>
+                    <textarea id="followUpInstructions" name="followUpInstructions" rows="3" placeholder="e.g., Return in 1 year for comprehensive exam, or sooner if any new symptoms or worsening vision."></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Notes & Reflection</legend>
+                <div class="form-group">
+                    <label for="internalNotes">Internal Notes (Not for Patient)</label>
+                    <textarea id="internalNotes" name="internalNotes" rows="3" placeholder="e.g., Consider differential XYZ if no improvement."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="notesReflection">Personal Reflection/Learning Points</label>
+                    <textarea id="notesReflection" name="notesReflection" rows="4" placeholder="e.g., This case highlights the importance of cycloplegic refraction in young myopes."></textarea>
+                </div>
+            </fieldset>
+
+            <div class="form-actions">
+                <!-- Removed 'Generate AI Draft' button as AI integrations are excluded -->
+                <button type="button" id="clearForm">Clear Form</button>
+                <button type="submit" id="saveCase">Save Case</button>
+            </div>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Focus CaseX. All rights reserved.</p>
+        <p>Powered by Focus</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

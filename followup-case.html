@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus CaseX - Follow-up Case</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Focus CaseX - Follow-up Case</h1>
+        <nav>
+            <a href="index.html">Back to Case Selection</a>
+            <a href="general-case.html">General</a>
+            <a href="certificate-case.html">Certificate</a>
+            <a href="emergency-case.html">Emergency</a>
+            <a href="followup-case.html">Follow-up</a>
+            <a href="contactlens-case.html">Contact Lens</a>
+            <a href="orthoptics-case.html">Orthoptics</a>
+            <a href="lowvision-case.html">Low Vision</a>
+            <!-- Removed AI Assistant link as AI integrations are excluded -->
+        </nav>
+    </header>
+
+    <main class="case-sheet-container">
+        <form id="optometryCaseForm">
+            <input type="hidden" name="caseType" value="followup">
+
+            <fieldset class="section">
+                <legend>Patient Info</legend>
+                <div class="form-group">
+                    <label for="patientId">Patient ID (Optional)</label>
+                    <input type="text" id="patientId" name="patientId" placeholder="e.g., P00123">
+                </div>
+                <div class="form-group">
+                    <label for="patientName">Name <sup>*</sup></label>
+                    <input type="text" id="patientName" name="patientName" placeholder="e.g., John Doe" required aria-required="true" autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="dateOfVisit">Date of Visit <sup>*</sup></label>
+                    <input type="date" id="dateOfVisit" name="dateOfVisit" required aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="previousVisitDate">Previous Visit Date <sup>*</sup></label>
+                    <input type="date" id="previousVisitDate" name="previousVisitDate" required aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="referencingPreviousCaseId">Referencing Previous Case ID (Optional)</label>
+                    <input type="text" id="referencingPreviousCaseId" name="referencingPreviousCaseId" placeholder="e.g., P00123-20230115">
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Chief Complaint (CC) / Status Update</legend>
+                <div class="form-group">
+                    <label for="chiefComplaint">Chief Complaint / Status Since Last Visit <sup>*</sup></label>
+                    <textarea id="chiefComplaint" name="chiefComplaint" rows="3" placeholder="e.g., Patient reports symptoms of dry eye are much improved with artificial tears, vision remains stable. Reports worsening blurred vision OD." required aria-required="true"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="complianceStatus">Compliance with Treatment</label>
+                    <textarea id="complianceStatus" name="complianceStatus" rows="2" placeholder="e.g., Patient compliant with eye drops and spectacle wear. / Patient reports difficulty remembering drops."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="newSymptoms">Any New Ocular Symptoms?</label>
+                    <textarea id="newSymptoms" name="newSymptoms" rows="2" placeholder="e.g., Denies new flashes/floaters. Reports occasional headache."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="conditionStatus">Condition Status (Overall)</label>
+                    <select id="conditionStatus" name="conditionStatus">
+                        <option value="">Select...</option>
+                        <option value="Improved">Improved</option>
+                        <option value="Stable">Stable</option>
+                        <option value="Worsened">Worsened</option>
+                        <option value="Resolved">Resolved</option>
+                        <option value="New Problem">New Problem</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Any Adverse Effects from Current Treatment?</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="sideEffectsYes" name="treatmentSideEffects" value="Yes" aria-controls="treatmentSideEffects_details">
+                        <label for="sideEffectsYes">Yes</label>
+                        <input type="radio" id="sideEffectsNo" name="treatmentSideEffects" value="No" checked aria-controls="treatmentSideEffects_details">
+                        <label for="sideEffectsNo">No</label>
+                        <textarea id="treatmentSideEffects_details" name="treatmentSideEffects_details" rows="2" placeholder="Describe adverse effects." class="conditional-group" aria-expanded="false" aria-describedby="sideEffectsYes sideEffectsNo"></textarea>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>History Update</legend>
+                <div class="form-group">
+                    <label for="changesInMedicalHistory">Changes in POH/PMH/Medications?</label>
+                    <textarea id="changesInMedicalHistory" name="changesInMedicalHistory" rows="3" placeholder="e.g., No new medical diagnoses or medications since last visit. / Started new BP medication 2 months ago."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="changesInSocialHistory">Changes in Social History?</label>
+                    <textarea id="changesInSocialHistory" name="changesInSocialHistory" rows="2" placeholder="e.g., Started a new job with increased computer use."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Current Spectacles Adequate?</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="spectaclesAdequateYes" name="spectaclesAdequate" value="Yes" checked>
+                        <label for="spectaclesAdequateYes">Yes</label>
+                        <input type="radio" id="spectaclesAdequateNo" name="spectaclesAdequate" value="No">
+                        <label for="spectaclesAdequateNo">No</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Current Contact Lenses Adequate?</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="contactLensesAdequateYes" name="contactLensesAdequate" value="Yes" checked>
+                        <label for="contactLensesAdequateYes">Yes</label>
+                        <input type="radio" id="contactLensesAdequateNo" name="contactLensesAdequate" value="No">
+                        <label for="contactLensesAdequateNo">No</label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Examination (Focused)</legend>
+
+                <div class="va-label">Visual Acuity</div>
+                <div class="va-row">
+                    <div class="form-group va-item">
+                        <label>UCVA OD</label>
+                        <input type="text" name="vaUncorrectedOD" placeholder="e.g., 20/40 (6/12)">
+                    </div>
+                    <div class="form-group va-item">
+                        <label>UCVA OS</label>
+                        <input type="text" name="vaUncorrectedOS" placeholder="e.g., 20/50 (6/15)">
+                    </div>
+                </div>
+                <div class="va-row">
+                    <div class="form-group va-item">
+                        <label>BCVA OD (with current Rx/PH)</label>
+                        <input type="text" name="vaBestCorrectedOD" placeholder="e.g., 20/20 (6/6) with -2.00DS">
+                    </div>
+                    <div class="form-group va-item">
+                        <label>BCVA OS (with current Rx/PH)</label>
+                        <input type="text" name="vaBestCorrectedOS" placeholder="e.g., 20/25 (6/7.5) PH">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="pupilsFollowup">Pupils</label>
+                    <select id="pupilsFollowup" name="pupilsFollowup" aria-controls="pupilsFollowup_details">
+                        <option value="PERRLA">PERRLA</option>
+                        <option value="APD OD">APD OD</option>
+                        <option value="APD OS">APD OS</option>
+                        <option value="Other">Other (describe below)</option>
+                    </select>
+                    <textarea id="pupilsFollowup_details" name="pupilsFollowup_details" rows="1" placeholder="Describe pupils if 'Other' selected or for additional details." class="conditional-group" aria-expanded="false" aria-describedby="pupilsFollowup"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="eomsFollowup">Extraocular Motility (EOMs)</label>
+                    <select id="eomsFollowup" name="eomsFollowup" aria-controls="eomsFollowup_details">
+                        <option value="Full and Smooth">Full and Smooth</option>
+                        <option value="Restricted">Restricted</option>
+                        <option value="Other">Other (describe below)</option>
+                    </select>
+                    <textarea id="eomsFollowup_details" name="eomsFollowup_details" rows="1" placeholder="Describe EOMs if 'Other' selected or for additional details." class="conditional-group" aria-expanded="false" aria-describedby="eomsFollowup"></textarea>
+                </div>
+
+                <div class="iop-label">Intraocular Pressure (IOP)</div>
+                <div class="iop-row">
+                    <div class="form-group iop-item">
+                        <label>IOP OD (mmHg)</label>
+                        <input type="text" name="iopOD" placeholder="e.g., 15 @ 10:30 AM">
+                    </div>
+                    <div class="form-group iop-item">
+                        <label>IOP OS (mmHg)</label>
+                        <input type="text" name="iopOS" placeholder="e.g., 16 @ 10:30 AM">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="iopMethodFollowup">Method</label>
+                    <select id="iopMethodFollowup" name="iopMethodFollowup">
+                        <option value="">Select...</option>
+                        <option value="NCT">NCT</option>
+                        <option value="Goldmann">Goldmann Applanation Tonometry</option>
+                        <option value="Icare">Icare</option>
+                        <option value="Tono-Pen">Tono-Pen</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="iopTarget">Target IOP (mmHg)</label>
+                    <input type="number" id="iopTarget" name="iopTarget" placeholder="e.g., 14">
+                </div>
+                <div class="form-group">
+                    <label>IOP Target Met? <sup>*</sup></label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="iopTargetMetYes" name="iopTargetMet" value="Yes" required aria-required="true">
+                        <label for="iopTargetMetYes">Yes</label>
+                        <input type="radio" id="iopTargetMetNo" name="iopTargetMet" value="No" checked required aria-required="true">
+                        <label for="iopTargetMetNo">No</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Slit Lamp Exam (Relevant Findings Only)</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="slitLampFollowup_wnl" name="slitLampFollowup_status" value="WNL" checked aria-controls="slitLampFollowup">
+                        <label for="slitLampFollowup_wnl">WNL (or stable)</label>
+                        <input type="radio" id="slitLampFollowup_notwnl" name="slitLampFollowup_status" value="Not WNL" aria-controls="slitLampFollowup">
+                        <label for="slitLampFollowup_notwnl">Not WNL (describe)</label>
+                    </div>
+                    <textarea id="slitLampFollowup" name="slitLampFollowup" rows="3" placeholder="e.g., Conjunctiva: Less injection OU. Cornea: No staining. Lens: NSC unchanged." class="conditional-group" aria-expanded="false" aria-describedby="slitLampFollowup_wnl slitLampFollowup_notwnl"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Posterior Segment Exam (Relevant Findings Only)</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="posteriorSegmentFollowup_wnl" name="posteriorSegmentFollowup_status" value="WNL" checked aria-controls="posteriorSegmentFollowup">
+                        <label for="posteriorSegmentFollowup_wnl">WNL (or stable)</label>
+                        <input type="radio" id="posteriorSegmentFollowup_notwnl" name="posteriorSegmentFollowup_status" value="Not WNL" aria-controls="posteriorSegmentFollowup">
+                        <label for="posteriorSegmentFollowup_notwnl">Not WNL (describe)</label>
+                    </div>
+                    <textarea id="posteriorSegmentFollowup" name="posteriorSegmentFollowup" rows="3" placeholder="e.g., Optic Disc: CD ratio stable OD 0.4, OS 0.4. Macula: No new drusen." class="conditional-group" aria-expanded="false" aria-describedby="posteriorSegmentFollowup_wnl posteriorSegmentFollowup_notwnl"></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Investigations</legend>
+                <div class="form-group">
+                    <label for="octFollowup">OCT Findings (if repeated)</label>
+                    <textarea id="octFollowup" name="octFollowup" rows="2" placeholder="e.g., RNFL OCT OU: Stable compared to previous."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="octRnflChange">OCT RNFL/GCC Thickness Change</label>
+                    <select id="octRnflChange" name="octRnflChange">
+                        <option value="Stable">Stable</option>
+                        <option value="Thinning">Thinning</option>
+                        <option value="Thickening">Thickening</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="visualFieldFollowup">Visual Field Findings (if repeated)</label>
+                    <textarea id="visualFieldFollowup" name="visualFieldFollowup" rows="2" placeholder="e.g., Humphrey 24-2: No significant change."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="visualFieldMdChange">Visual Field MD/PSD Change</label>
+                    <input type="text" id="visualFieldMdChange" name="visualFieldMdChange" placeholder="e.g., MD -0.5 dB stable.">
+                </div>
+                <div class="form-group">
+                    <label for="macularEdemaStatus">Macular Edema Status</label>
+                    <select id="macularEdemaStatus" name="macularEdemaStatus">
+                        <option value="Resolved">Resolved</option>
+                        <option value="Improving">Improving</option>
+                        <option value="Stable">Stable</option>
+                        <option value="Worsening">Worsening</option>
+                        <option value="New">New</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="otherInvestigationsFollowup">Other Investigations (if any)</label>
+                    <textarea id="otherInvestigationsFollowup" name="otherInvestigationsFollowup" rows="2"></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Assessment & Plan</legend>
+                <div class="form-group">
+                    <label for="assessmentDiagnoses">Assessment / Diagnoses (Current Status) <sup>*</sup></label>
+                    <textarea id="assessmentDiagnoses" name="assessmentDiagnoses" rows="5" placeholder="1. Primary Open Angle Glaucoma OU: IOPs stable, fields stable, OCT stable.&#10;2. Dry Eye Syndrome OU: Improved with treatment." required aria-required="true"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="plan">Plan / Adjustments <sup>*</sup></label>
+                    <textarea id="plan" name="plan" rows="5" placeholder="1. Continue current management for glaucoma.&#10;2. Continue artificial tears QID for dry eye.&#10;3. RTC 6 months for repeat IOP, VF, and OCT.&#10;4. Patient education reinforcement on compliance." required aria-required="true"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="patientEducationProvided">Patient Education Provided/Reinforced</label>
+                    <textarea id="patientEducationProvided" name="patientEducationProvided" rows="2" placeholder="e.g., Compliance, symptom monitoring, warning signs for RD."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="prognosis">Prognosis</label>
+                    <textarea id="prognosis" name="prognosis" rows="2" placeholder="e.g., Stable with good compliance."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="followUpInstructions">Follow Up Instructions</label>
+                    <textarea id="followUpInstructions" name="followUpInstructions" rows="3" placeholder="e.g., Return in 6 months for follow-up exam, or sooner if any new symptoms or worsening vision."></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Notes & Reflection</legend>
+                <div class="form-group">
+                    <label for="internalNotes">Internal Notes (Not for Patient)</label>
+                    <textarea id="internalNotes" name="internalNotes" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="notesReflection">Personal Reflection/Learning Points</label>
+                    <textarea id="notesReflection" name="notesReflection" rows="4"></textarea>
+                </div>
+            </fieldset>
+
+            <div class="form-actions">
+                <!-- Removed 'Generate AI Draft' button as AI integrations are excluded -->
+                <button type="button" id="clearForm">Clear Form</button>
+                <button type="submit" id="saveCase">Save Case</button>
+            </div>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Focus CaseX. All rights reserved.</p>
+        <p>Powered by Focus</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

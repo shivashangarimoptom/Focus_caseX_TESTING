@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus CaseX - Neuro-Optometry & Vision Rehabilitation Case</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Focus CaseX - Neuro-Optometry & Vision Rehabilitation Case</h1>
+        <nav>
+            <a href="index.html">Back to Case Selection</a>
+            <a href="general-case.html">General</a>
+            <a href="certificate-case.html">Certificate</a>
+            <a href="emergency-case.html">Emergency</a>
+            <a href="followup-case.html">Follow-up</a>
+            <a href="contactlens-case.html">Contact Lens</a>
+            <a href="orthoptics-case.html">Orthoptics</a>
+            <a href="lowvision-case.html">Low Vision</a>
+            <a href="surgicalcomanagement-case.html">Surgical Co-management</a>
+            <a href="pediatricoptometry-case.html">Pediatric Optometry</a>
+            <a href="ocularsurfacedisease-case.html">Ocular Surface Disease</a>
+            <a href="myopiamanagement-case.html">Myopia Management</a>
+            <a href="neurooptometry-case.html">Neuro-Optometry & Rehab</a>
+        </nav>
+    </header>
+
+    <main class="case-sheet-container">
+        <form id="optometryCaseForm">
+            <input type="hidden" name="caseType" value="neurooptometry">
+
+            <fieldset class="section">
+                <legend>Patient Info</legend>
+                <div class="form-group">
+                    <label for="patientId">Patient ID (Optional)</label>
+                    <input type="text" id="patientId" name="patientId" placeholder="e.g., P00123">
+                </div>
+                <div class="form-group">
+                    <label for="patientName">Name <sup>*</sup></label>
+                    <input type="text" id="patientName" name="patientName" placeholder="e.g., Sarah Johnson" required aria-required="true" autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="dateOfBirth">Date of Birth <sup>*</sup></label>
+                    <input type="date" id="dateOfBirth" name="dateOfBirth" required aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="dateOfInjuryOnset">Date of Injury/Onset of Condition</label>
+                    <input type="date" id="dateOfInjuryOnset" name="dateOfInjuryOnset">
+                </div>
+                <div class="form-group">
+                    <label for="typeOfInjuryCondition">Type of Injury/Condition</label>
+                    <select id="typeOfInjuryCondition" name="typeOfInjuryCondition" aria-controls="injuryDetails">
+                        <option value="">Select...</option>
+                        <option value="Traumatic Brain Injury (TBI)">Traumatic Brain Injury (TBI)</option>
+                        <option value="Stroke">Stroke</option>
+                        <option value="Concussion">Concussion</option>
+                        <option value="Multiple Sclerosis (MS)">Multiple Sclerosis (MS)</option>
+                        <option value="Other Neurological Condition">Other Neurological Condition</option>
+                        <option value="Other">Other (describe below)</option>
+                    </select>
+                    <textarea id="injuryDetails" name="injuryDetails" rows="2" placeholder="Describe injury or neurological condition details." class="conditional-group" aria-expanded="false" aria-describedby="typeOfInjuryCondition"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Previous Neuro-Rehabilitation (Vision-Related)?</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="previousNeuroRehabYes" name="previousNeuroRehab" value="Yes" aria-controls="previousNeuroRehab_details">
+                        <label for="previousNeuroRehabYes">Yes</label>
+                        <input type="radio" id="previousNeuroRehabNo" name="previousNeuroRehab" value="No" checked aria-controls="previousNeuroRehab_details">
+                        <label for="previousNeuroRehabNo">No</label>
+                    </div>
+                    <textarea id="previousNeuroRehab_details" name="previousNeuroRehab_details" rows="2" placeholder="Details of previous therapy (e.g., type, duration, outcome)." class="conditional-group" aria-expanded="false" aria-describedby="previousNeuroRehabYes previousNeuroRehabNo"></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Chief Complaint (CC)</legend>
+                <div class="form-group">
+                    <label for="chiefComplaint">Chief Complaint <sup>*</sup></label>
+                    <textarea id="chiefComplaint" name="chiefComplaint" rows="2" placeholder="e.g., Bumping into objects on the right side. / Difficulty reading since concussion. / Constant double vision." required aria-required="true"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="hpi">History of Present Illness (HPI)</label>
+                    <textarea id="hpi" name="hpi" rows="4" placeholder="Onset, duration, severity of symptoms, triggers, modifying factors, other associated symptoms."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Specific Functional Vision Problems (Check all that apply)</label>
+                    <div class="input-group-inline">
+                        <input type="checkbox" id="vfp_visualFieldLoss" name="vfp_visualFieldLoss" value="Visual Field Loss"><label for="vfp_visualFieldLoss">Visual Field Loss</label>
+                        <input type="checkbox" id="vfp_diplopia" name="vfp_diplopia" value="Diplopia"><label for="vfp_diplopia">Diplopia</label>
+                        <input type="checkbox" id="vfp_spatialDisorientation" name="vfp_spatialDisorientation" value="Spatial Disorientation"><label for="vfp_spatialDisorientation">Spatial Disorientation</label>
+                        <input type="checkbox" id="vfp_balanceIssues" name="vfp_balanceIssues" value="Balance Issues"><label for="vfp_balanceIssues">Balance Issues</label>
+                        <input type="checkbox" id="vfp_readingDifficulty" name="vfp_readingDifficulty" value="Reading Difficulty"><label for="vfp_readingDifficulty">Reading Difficulty</label>
+                        <input type="checkbox" id="vfp_photophobia" name="vfp_photophobia" value="Photophobia"><label for="vfp_photophobia">Photophobia</label>
+                        <input type="checkbox" id="vfp_visualMidlineShift" name="vfp_visualMidlineShift" value="Visual Midline Shift"><label for="vfp_visualMidlineShift">Visual Midline Shift</label>
+                        <input type="checkbox" id="vfp_visualConfusion" name="vfp_visualConfusion" value="Visual Confusion"><label for="vfp_visualConfusion">Visual Confusion</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="functionalGoals">Functional Goals for Rehabilitation</label>
+                    <textarea id="functionalGoals" name="functionalGoals" rows="3" placeholder="e.g., Improve reading stamina for work. / Reduce bumping into objects. / Improve driving safety."></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>History</legend>
+                <div class="form-group">
+                    <label for="poh">Past Ocular History (POH)</label>
+                    <textarea id="poh" name="poh" rows="2" placeholder="e.g., Pre-existing strabismus, amblyopia."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="pmh">Past Medical History (PMH) relevant to neuro-rehab</label>
+                    <textarea id="pmh" name="pmh" rows="3" placeholder="e.g., Previous concussions, migraines, anxiety/depression."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="allergies">Allergies</label>
+                    <textarea id="allergies" name="allergies" rows="1" placeholder="e.g., None."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="medications">Current Medications</label>
+                    <textarea id="medications" name="medications" rows="2" placeholder="e.g., Pain relievers, antidepressants, seizure medications."></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Examination (Neuro-Optometry Focused)</legend>
+
+                <div class="va-label">Visual Acuity</div>
+                <div class="va-row">
+                    <div class="form-group va-item">
+                        <label>BCVA OD (with habitual Rx)</label>
+                        <input type="text" name="vaBestCorrectedHabitualOD" placeholder="e.g., 20/20 (6/6)">
+                    </div>
+                    <div class="form-group va-item">
+                        <label>BCVA OS (with habitual Rx)</label>
+                        <input type="text" name="vaBestCorrectedHabitualOS" placeholder="e.g., 20/25 (6/7.5)">
+                    </div>
+                    <div class="form-group va-item">
+                        <label>BCVA OU (with habitual Rx)</label>
+                        <input type="text" name="vaBestCorrectedHabitualOU" placeholder="e.g., 20/20 (6/6)">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="pupilsNeuro">Pupils</label>
+                    <select id="pupilsNeuro" name="pupilsNeuro">
+                        <option value="PERRLA">PERRLA</option>
+                        <option value="APD OD">APD OD</option>
+                        <option value="APD OS">APD OS</option>
+                        <option value="Irregular Shape">Irregular Shape</option>
+                        <option value="Fixed/Dilated">Fixed/Dilated</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="eomsNeuro">Extraocular Motility (EOMs) - Detailed</label>
+                    <textarea id="eomsNeuro" name="eomsNeuro" rows="3" placeholder="e.g., Saccades: hypometric OD, normal OS. Pursuits: jerky OU. Gaze limitation: abduction deficit OD."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Visual Field Loss?</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="visualFieldLossYes" name="visualFieldLoss" value="Yes" aria-controls="visualFieldLoss_details">
+                        <label for="visualFieldLossYes">Yes</label>
+                        <input type="radio" id="visualFieldLossNo" name="visualFieldLoss" value="No" checked aria-controls="visualFieldLoss_details">
+                        <label for="visualFieldLossNo">No</label>
+                    </div>
+                    <textarea id="visualFieldLoss_details" name="visualFieldLoss_details" rows="2" placeholder="e.g., Right homonymous hemianopsia. / Superior quadrantanopsia OS." class="conditional-group" aria-expanded="false" aria-describedby="visualFieldLossYes visualFieldLossNo"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="diplopiaCharting">Diplopia Charting / Fields of Gaze</label>
+                    <textarea id="diplopiaCharting" name="diplopiaCharting" rows="2" placeholder="e.g., Horizontal diplopia in right gaze."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Oculomotor Dysfunction (beyond EOMs)?</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="oculomotorDysfunctionYes" name="oculomotorDysfunction" value="Yes" aria-controls="oculomotorDysfunction_details">
+                        <label for="oculomotorDysfunctionYes">Yes</label>
+                        <input type="radio" id="oculomotorDysfunctionNo" name="oculomotorDysfunction" value="No" checked aria-controls="oculomotorDysfunction_details">
+                        <label for="oculomotorDysfunctionNo">No</label>
+                    </div>
+                    <textarea id="oculomotorDysfunction_details" name="oculomotorDysfunction_details" rows="2" placeholder="e.g., Ocular motor apraxia. / Internuclear ophthalmoplegia." class="conditional-group" aria-expanded="false" aria-describedby="oculomotorDysfunctionYes oculomotorDysfunctionNo"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Perceptual Visual Deficits?</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="perceptualDeficitsYes" name="perceptualDeficits" value="Yes" aria-controls="perceptualDeficits_details">
+                        <label for="perceptualDeficitsYes">Yes</label>
+                        <input type="radio" id="perceptualDeficitsNo" name="perceptualDeficits" value="No" checked aria-controls="perceptualDeficits_details">
+                        <label for="perceptualDeficitsNo">No</label>
+                    </div>
+                    <textarea id="perceptualDeficits_details" name="perceptualDeficits_details" rows="3" placeholder="e.g., Visual midline shift to the left. / Spatial neglect (left side). / Visual memory deficits." class="conditional-group" aria-expanded="false" aria-describedby="perceptualDeficitsYes perceptualDeficitsNo"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Vestibular/Balance Issues related to Vision?</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="balanceIssuesYes" name="balanceIssues" value="Yes" aria-controls="balanceIssues_details">
+                        <label for="balanceIssuesYes">Yes</label>
+                        <input type="radio" id="balanceIssuesNo" name="balanceIssues" value="No" checked aria-controls="balanceIssues_details">
+                        <label for="balanceIssuesNo">No</label>
+                    </div>
+                    <textarea id="balanceIssues_details" name="balanceIssues_details" rows="2" placeholder="Describe specific balance challenges worsened by visual stimuli." class="conditional-group" aria-expanded="false" aria-describedby="balanceIssuesYes balanceIssuesNo"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="refractionNeuro">Refraction (with compensatory elements)</label>
+                    <textarea id="refractionNeuro" name="refractionNeuro" rows="2" placeholder="e.g., OD: -1.00DS. OS: -1.00DS. Add 2^ Base Out OU for convergence insufficiency."></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Rehabilitation & Aids</legend>
+                <div class="form-group">
+                    <label for="prescribedPrism">Prescribed Prism</label>
+                    <textarea id="prescribedPrism" name="prescribedPrism" rows="2" placeholder="e.g., 2^ BI OU (segmental) for reading. / 4^ Yoked Base Left OU."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="prescribedFilters">Prescribed Filters/Tints</label>
+                    <textarea id="prescribedFilters" name="prescribedFilters" rows="2" placeholder="e.g., FL-41 tint for photophobia. / Neutral density filter."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="visionTherapyGoals">Vision Therapy Goals</label>
+                    <textarea id="visionTherapyGoals" name="visionTherapyGoals" rows="3" placeholder="e.g., Improve saccadic accuracy for reading. / Expand visual field awareness. / Reduce visual vertigo."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="homeExercisesPrescribed">Home Exercises Prescribed</label>
+                    <textarea id="homeExercisesPrescribed" name="homeExercisesPrescribed" rows="3" placeholder="e.g., Lighthouse tracing, Hart chart saccades, balance board activities with visual targets."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Referral to Occupational Therapy (OT)?</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="referralOTYes" name="referralOT" value="Yes" aria-controls="referralOT_details">
+                        <label for="referralOTYes">Yes</label>
+                        <input type="radio" id="referralOTNo" name="referralOT" value="No" checked aria-controls="referralOT_details">
+                        <label for="referralOTNo">No</label>
+                    </div>
+                    <textarea id="referralOT_details" name="referralOT_details" rows="2" placeholder="Specify OT and areas for ADL training with visual deficits." class="conditional-group" aria-expanded="false" aria-describedby="referralOTYes referralOTNo"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Referral to Physical Therapy (PT)?</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="referralPTYes" name="referralPT" value="Yes" aria-controls="referralPT_details">
+                        <label for="referralPTYes">Yes</label>
+                        <input type="radio" id="referralPTNo" name="referralPT" value="No" checked aria-controls="referralPT_details">
+                        <label for="referralPTNo">No</label>
+                    </div>
+                    <textarea id="referralPT_details" name="referralPT_details" rows="2" placeholder="Specify PT and areas for balance/vestibular rehab." class="conditional-group" aria-expanded="false" aria-describedby="referralPTYes referralPTNo"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Referral to Speech Therapy?</label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="referralSpeechYes" name="referralSpeech" value="Yes" aria-controls="referralSpeech_details">
+                        <label for="referralSpeechYes">Yes</label>
+                        <input type="radio" id="referralSpeechNo" name="referralSpeech" value="No" checked aria-controls="referralSpeech_details">
+                        <label for="referralSpeechNo">No</label>
+                    </div>
+                    <textarea id="referralSpeech_details" name="referralSpeech_details" rows="2" placeholder="Specify Speech Therapist and areas for cognitive/communication rehab impacting vision." class="conditional-group" aria-expanded="false" aria-describedby="referralSpeechYes referralSpeechNo"></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Assessment & Plan</legend>
+                <div class="form-group">
+                    <label for="assessmentDiagnoses">Assessment / Diagnoses <sup>*</sup></label>
+                    <textarea id="assessmentDiagnoses" name="assessmentDiagnoses" rows="5" placeholder="1. Post-concussion syndrome with convergence insufficiency and visual midline shift.&#10;2. Functional impairment in reading and gait due to visual deficits." required aria-required="true"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="plan">Plan <sup>*</sup></label>
+                    <textarea id="plan" name="plan" rows="5" placeholder="1. Prescribe therapeutic prism (1^ BO OU for near, 2^ Yoked Base Right OU for mobility).&#10;2. Initiate weekly in-office vision therapy for oculomotor and perceptual training.&#10;3. Home VT exercises: Brock String, Visual Tracking.&#10;4. Refer to OT for ADL training and PT for vestibular rehabilitation.&#10;5. RTC 4 weeks for vision therapy progress check." required aria-required="true"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="prognosis">Prognosis</label>
+                    <textarea id="prognosis" name="prognosis" rows="2" placeholder="e.g., Guarded, but good potential for functional improvement with consistent therapy."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="followUpInstructions">Follow Up Instructions</label>
+                    <textarea id="followUpInstructions" name="followUpInstructions" rows="3" placeholder="e.g., Attend all therapy sessions. Practice home exercises daily. Contact PT/OT. Return in 4 weeks."></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Notes & Reflection</legend>
+                <div class="form-group">
+                    <label for="internalNotes">Internal Notes (Not for Patient)</label>
+                    <textarea id="internalNotes" name="internalNotes" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="notesReflection">Personal Reflection/Learning Points</label>
+                    <textarea id="notesReflection" name="notesReflection" rows="4"></textarea>
+                </div>
+            </fieldset>
+
+            <div class="form-actions">
+                <button type="button" id="clearForm">Clear Form</button>
+                <button type="submit" id="saveCase">Save Case</button>
+            </div>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Focus CaseX. All rights reserved.</p>
+        <p>Powered by Focus</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

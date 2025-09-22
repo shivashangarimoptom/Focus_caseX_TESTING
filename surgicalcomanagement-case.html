@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus CaseX - Surgical Co-management Case</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Focus CaseX - Surgical Co-management Case</h1>
+        <nav>
+            <a href="index.html">Back to Case Selection</a>
+            <a href="general-case.html">General</a>
+            <a href="certificate-case.html">Certificate</a>
+            <a href="emergency-case.html">Emergency</a>
+            <a href="followup-case.html">Follow-up</a>
+            <a href="contactlens-case.html">Contact Lens</a>
+            <a href="orthoptics-case.html">Orthoptics</a>
+            <a href="lowvision-case.html">Low Vision</a>
+            <a href="surgicalcomanagement-case.html">Surgical Co-management</a>
+            <a href="pediatricoptometry-case.html">Pediatric Optometry</a>
+            <a href="ocularsurfacedisease-case.html">Ocular Surface Disease</a>
+            <a href="myopiamanagement-case.html">Myopia Management</a>
+            <a href="neurooptometry-case.html">Neuro-Optometry & Rehab</a>
+        </nav>
+    </header>
+
+    <main class="case-sheet-container">
+        <form id="optometryCaseForm">
+            <input type="hidden" name="caseType" value="surgicalcomanagement">
+
+            <fieldset class="section">
+                <legend>Patient Info</legend>
+                <div class="form-group">
+                    <label for="patientId">Patient ID (Optional)</label>
+                    <input type="text" id="patientId" name="patientId" placeholder="e.g., P00123">
+                </div>
+                <div class="form-group">
+                    <label for="patientName">Name <sup>*</sup></label>
+                    <input type="text" id="patientName" name="patientName" placeholder="e.g., Mary Jones" required aria-required="true" autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="dateOfBirth">Date of Birth <sup>*</sup></label>
+                    <input type="date" id="dateOfBirth" name="dateOfBirth" required aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="referringSurgeon">Referring Surgeon</label>
+                    <input type="text" id="referringSurgeon" name="referringSurgeon" placeholder="e.g., Dr. Jane Smith (Ophthalmologist)">
+                </div>
+                <div class="form-group">
+                    <label for="dateOfSurgery">Date of Surgery <sup>*</sup></label>
+                    <input type="date" id="dateOfSurgery" name="dateOfSurgery" required aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="typeOfSurgery">Type of Surgery <sup>*</sup></label>
+                    <select id="typeOfSurgery" name="typeOfSurgery" required aria-required="true" aria-controls="surgeryDetails">
+                        <option value="">Select...</option>
+                        <option value="Cataract Extraction (Phaco)">Cataract Extraction (Phaco)</option>
+                        <option value="LASIK">LASIK</option>
+                        <option value="PRK">PRK</option>
+                        <option value="ICL (Implantable Collamer Lens)">ICL (Implantable Collamer Lens)</option>
+                        <option value="Glaucoma Surgery (e.g., Trabeculectomy)">Glaucoma Surgery</option>
+                        <option value="Retinal Surgery (e.g., Vitrectomy)">Retinal Surgery</option>
+                        <option value="Pterygium Excision">Pterygium Excision</option>
+                        <option value="Eyelid Surgery">Eyelid Surgery</option>
+                        <option value="Other">Other (describe below)</option>
+                    </select>
+                    <textarea id="surgeryDetails" name="surgeryDetails" rows="2" placeholder="Specify other surgery details." class="conditional-group" aria-expanded="false" aria-describedby="typeOfSurgery"></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Chief Complaint (CC)</legend>
+                <div class="form-group">
+                    <label for="chiefComplaint">Chief Complaint <sup>*</sup></label>
+                    <textarea id="chiefComplaint" name="chiefComplaint" rows="2" placeholder="e.g., Post-operative check-up for cataract surgery OD. / Blurry vision after LASIK OS." required aria-required="true"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="hpi">History of Present Illness (HPI)</label>
+                    <textarea id="hpi" name="hpi" rows="3" placeholder="Details about symptoms, post-op course, adherence to drops."></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>History</legend>
+                <div class="form-group">
+                    <label for="poh">Past Ocular History (POH)</label>
+                    <textarea id="poh" name="poh" rows="2" placeholder="e.g., Previous ocular surgeries, glaucoma history."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="pmh">Past Medical History (PMH)</label>
+                    <textarea id="pmh" name="pmh" rows="2" placeholder="e.g., Diabetes, Hypertension."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="allergies">Allergies</label>
+                    <textarea id="allergies" name="allergies" rows="1" placeholder="e.g., Penicillin."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="preOpMeds">Pre-operative Medications</label>
+                    <textarea id="preOpMeds" name="preOpMeds" rows="2" placeholder="e.g., Pred Forte TID OD (3 days prior)."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="postOpMedsCurrent">Current Post-operative Medications <sup>*</sup></label>
+                    <textarea id="postOpMedsCurrent" name="postOpMedsCurrent" rows="3" placeholder="e.g., Pred Forte QID OD, Moxifloxacin QID OD." required aria-required="true"></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Pre-Operative Assessment (if applicable)</legend>
+                <div class="va-row">
+                    <div class="form-group va-item">
+                        <label>Pre-op VA OD</label>
+                        <input type="text" name="preOpVA_OD" placeholder="e.g., 20/80">
+                    </div>
+                    <div class="form-group va-item">
+                        <label>Pre-op VA OS</label>
+                        <input type="text" name="preOpVA_OS" placeholder="e.g., 20/20">
+                    </div>
+                </div>
+                <div class="refraction-row">
+                    <div class="form-group">
+                        <label>Pre-op Refraction OD</label>
+                        <input type="text" name="preOpRefraction_OD" placeholder="e.g., -1.00 -2.00 x 90">
+                    </div>
+                    <div class="form-group">
+                        <label>Pre-op Refraction OS</label>
+                        <input type="text" name="preOpRefraction_OS" placeholder="e.g., -1.75 DS">
+                    </div>
+                </div>
+                <div class="va-row">
+                    <div class="form-group va-item">
+                        <label for="biometryAxialLengthOD">Axial Length OD (mm)</label>
+                        <input type="number" id="biometryAxialLengthOD" name="biometryAxialLengthOD" step="0.01" placeholder="e.g., 23.50">
+                    </div>
+                    <div class="form-group va-item">
+                        <label for="biometryAxialLengthOS">Axial Length OS (mm)</label>
+                        <input type="number" id="biometryAxialLengthOS" name="biometryAxialLengthOS" step="0.01" placeholder="e.g., 23.60">
+                    </div>
+                </div>
+                <div class="keratometry-row">
+                    <div class="od-os-pair">
+                        <div class="form-group">
+                            <label for="biometryK1OD">Pre-op K1 OD</label>
+                            <input type="text" id="biometryK1OD" name="biometryK1OD" placeholder="e.g., 43.50">
+                        </div>
+                        <div class="form-group">
+                            <label for="biometryK2OD">Pre-op K2 OD</label>
+                            <input type="text" id="biometryK2OD" name="biometryK2OD" placeholder="e.g., 44.00">
+                        </div>
+                    </div>
+                    <div class="od-os-pair">
+                        <div class="form-group">
+                            <label for="biometryK1OS">Pre-op K1 OS</label>
+                            <input type="text" id="biometryK1OS" name="biometryK1OS" placeholder="e.g., 43.75">
+                        </div>
+                        <div class="form-group">
+                            <label for="biometryK2OS">Pre-op K2 OS</label>
+                            <input type="text" id="biometryK2OS" name="biometryK2OS" placeholder="e.g., 44.25">
+                        </div>
+                    </div>
+                </div>
+                <div class="va-row">
+                    <div class="form-group va-item">
+                        <label for="iop_preOp_OD">Pre-op IOP OD (mmHg)</label>
+                        <input type="text" id="iop_preOp_OD" name="iop_preOp_OD" placeholder="e.g., 15">
+                    </div>
+                    <div class="form-group va-item">
+                        <label for="iop_preOp_OS">Pre-op IOP OS (mmHg)</label>
+                        <input type="text" id="iop_preOp_OS" name="iop_preOp_OS" placeholder="e.g., 16">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="endothelialCellCountOD">Endothelial Cell Count OD (cells/mm²)</label>
+                    <input type="number" id="endothelialCellCountOD" name="endothelialCellCountOD" placeholder="e.g., 2500">
+                </div>
+                <div class="form-group">
+                    <label for="endothelialCellCountOS">Endothelial Cell Count OS (cells/mm²)</label>
+                    <input type="number" id="endothelialCellCountOS" name="endothelialCellCountOS" placeholder="e.g., 2600">
+                </div>
+                <div class="form-group">
+                    <label for="preOpLensStatus">Pre-op Lens Status</label>
+                    <select id="preOpLensStatus" name="preOpLensStatus">
+                        <option value="">Select...</option>
+                        <option value="Clear">Clear</option>
+                        <option value="NSC">NSC (Nuclear Sclerotic Cataract)</option>
+                        <option value="Cortical">Cortical Cataract</option>
+                        <option value="PSC">PSC (Posterior Subcapsular Cataract)</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Post-Operative Examination</legend>
+                <div class="form-group">
+                    <label for="postOpVisitType">Post-op Visit Type <sup>*</sup></label>
+                    <select id="postOpVisitType" name="postOpVisitType" required aria-required="true" aria-controls="postOpVisitDate">
+                        <option value="">Select...</option>
+                        <option value="Day 1">Day 1 Post-op</option>
+                        <option value="Week 1">Week 1 Post-op</option>
+                        <option value="Month 1">Month 1 Post-op</option>
+                        <option value="Month 3">Month 3 Post-op</option>
+                        <option value="Month 6">Month 6 Post-op</option>
+                        <option value="Annual">Annual Post-op</option>
+                        <option value="PRN">PRN (As needed)</option>
+                    </select>
+                    <input type="date" id="postOpVisitDate" name="postOpVisitDate" placeholder="Date of this specific post-op visit" class="conditional-group" aria-expanded="false" aria-describedby="postOpVisitType">
+                </div>
+                <div class="va-row">
+                    <div class="form-group va-item">
+                        <label>Post-op VA OD</label>
+                        <input type="text" name="postOpVA_OD" placeholder="e.g., 20/25 (6/7.5)">
+                    </div>
+                    <div class="form-group va-item">
+                        <label>Post-op VA OS</label>
+                        <input type="text" name="postOpVA_OS" placeholder="e.g., 20/20 (6/6)">
+                    </div>
+                </div>
+                <div class="refraction-row">
+                    <div class="form-group">
+                        <label>Post-op Refraction OD</label>
+                        <input type="text" name="postOpRefraction_OD" placeholder="e.g., +0.25 DS">
+                    </div>
+                    <div class="form-group">
+                        <label>Post-op Refraction OS</label>
+                        <input type="text" name="postOpRefraction_OS" placeholder="e.g., -0.50 DS">
+                    </div>
+                </div>
+                <div class="va-row">
+                    <div class="form-group va-item">
+                        <label for="iop_postOp_OD">Post-op IOP OD (mmHg)</label>
+                        <input type="text" id="iop_postOp_OD" name="iop_postOp_OD" placeholder="e.g., 12">
+                    </div>
+                    <div class="form-group va-item">
+                        <label for="iop_postOp_OS">Post-op IOP OS (mmHg)</label>
+                        <input type="text" id="iop_postOp_OS" name="iop_postOp_OS" placeholder="e.g., 14">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="externalExam_postOp">External Exam (Post-op)</label>
+                    <textarea id="externalExam_postOp" name="externalExam_postOp" rows="2" placeholder="e.g., Lids/lashes WNL. No discharge or edema."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="slitLampExam_postOp">Slit Lamp Exam (Post-op) <sup>*</sup></label>
+                    <textarea id="slitLampExam_postOp" name="slitLampExam_postOp" rows="4" placeholder="e.g., OD: Conjunctiva quiet. Clear cornea. AC deep & quiet. IOL well-centered, clear. Posterior capsule clear. OS: WNL." required aria-required="true"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="fundusExam_postOp">Fundus Exam (Post-op)</label>
+                    <textarea id="fundusExam_postOp" name="fundusExam_postOp" rows="3" placeholder="e.g., OD: Optic disc, macula, vessels, periphery WNL. OS: WNL."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Post-operative Complications? <sup>*</sup></label>
+                    <div class="input-group-inline">
+                        <input type="radio" id="postOpComplicationsYes" name="postOpComplications" value="Yes" required aria-required="true" aria-controls="postOpComplicationsList">
+                        <label for="postOpComplicationsYes">Yes</label>
+                        <input type="radio" id="postOpComplicationsNo" name="postOpComplications" value="No" checked required aria-required="true" aria-controls="postOpComplicationsList">
+                        <label for="postOpComplicationsNo">No</label>
+                    </div>
+                    <textarea id="postOpComplicationsList" name="postOpComplicationsList" rows="3" placeholder="e.g., Mild corneal edema OD. / Trace AC cell OS." class="conditional-group" aria-expanded="false" aria-describedby="postOpComplicationsYes postOpComplicationsNo"></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Assessment & Plan</legend>
+                <div class="form-group">
+                    <label for="assessmentDiagnoses">Assessment / Diagnoses <sup>*</sup></label>
+                    <textarea id="assessmentDiagnoses" name="assessmentDiagnoses" rows="5" placeholder="1. Pseudophakia OD, stable post-cataract surgery.&#10;2. Mild corneal edema OD, resolving.&#10;3. Visually adapted well to IOL." required aria-required="true"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="plan">Plan <sup>*</sup></label>
+                    <textarea id="plan" name="plan" rows="5" placeholder="1. Continue Pred Forte TID OD, tapering to BID next week.&#10;2. OTC artificial tears QID OD PRN.&#10;3. RTC 4 weeks for final refraction and glasses prescription.&#10;4. Patient education on visual recovery and medication schedule.&#10;5. Report to Dr. Smith regarding post-op course." required aria-required="true"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="prognosis">Prognosis</label>
+                    <textarea id="prognosis" name="prognosis" rows="2" placeholder="e.g., Excellent visual outcome expected."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="followUpInstructions">Follow Up Instructions</label>
+                    <textarea id="followUpInstructions" name="followUpInstructions" rows="3" placeholder="e.g., Continue drops as prescribed. Avoid rubbing eye. Return in 4 weeks for follow-up."></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Notes & Reflection</legend>
+                <div class="form-group">
+                    <label for="internalNotes">Internal Notes (Not for Patient)</label>
+                    <textarea id="internalNotes" name="internalNotes" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="notesReflection">Personal Reflection/Learning Points</label>
+                    <textarea id="notesReflection" name="notesReflection" rows="4"></textarea>
+                </div>
+            </fieldset>
+
+            <div class="form-actions">
+                <button type="button" id="clearForm">Clear Form</button>
+                <button type="submit" id="saveCase">Save Case</button>
+            </div>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Focus CaseX. All rights reserved.</p>
+        <p>Powered by Focus</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

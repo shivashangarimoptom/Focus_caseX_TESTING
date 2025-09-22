@@ -1,0 +1,544 @@
+/* Basic Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* Colors */
+    --primary-color-dark: #004d80;
+    --primary-color-light: #007bff;
+    --text-color-dark: #333;
+    --text-color-medium: #555;
+    --text-color-light: #6c757d;
+    --background-light: #eef2f7;
+    --background-white: #ffffff;
+    --background-off-white: #fdfdfd;
+    --background-very-light-grey: #fcfcfc;
+    --background-disabled: #e9ecef;
+    --border-color-light: #dcdcdc;
+    --border-color-medium: #ccc;
+    --border-color-dark: #eee;
+    --success-color: #28a745;
+    --success-color-dark: #218838;
+    --warning-color: #ffc107;
+    --warning-color-dark: #e0a800;
+    --danger-color: red;
+    --focus-ring-color: rgba(0, 123, 255, 0.4); /* Softer focus ring */
+
+    /* Spacing */
+    --spacing-xs: 5px;
+    --spacing-sm: 7px;
+    --spacing-md: 10px;
+    --spacing-lg: 15px;
+    --spacing-xl: 20px;
+    --spacing-xxl: 25px;
+    --spacing-xxxl: 30px;
+    --spacing-xxxxl: 40px;
+    --spacing-xxxxxl: 50px;
+
+    /* Borders & Shadows */
+    --border-radius-sm: 6px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 10px;
+    --border-radius-xl: 12px;
+    --box-shadow-sm: 0 2px 8px rgba(0, 123, 255, 0.2); /* For links */
+    --box-shadow-md: 0 4px 15px rgba(0, 0, 0, 0.1); /* For header */
+    --box-shadow-lg: 0 4px 20px rgba(0, 0, 0, 0.1); /* For containers */
+    --box-shadow-inner: 0 2px 10px rgba(0, 0, 0, 0.03); /* For fieldsets */
+    --box-shadow-button-base: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --box-shadow-button-hover: 0 5px 15px;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: var(--background-light);
+    color: var(--text-color-dark);
+    padding: var(--spacing-xl);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: var(--primary-color-dark);
+    color: white;
+    padding: var(--spacing-lg) var(--spacing-xxl);
+    margin-bottom: var(--spacing-xxl);
+    border-radius: var(--border-radius-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--box-shadow-md);
+    flex-wrap: wrap;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8em;
+    flex-shrink: 0;
+    line-height: 1.2;
+}
+
+header nav {
+    display: flex;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin-left: var(--spacing-xl);
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px var(--spacing-lg);
+    border-radius: var(--border-radius-sm);
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    white-space: nowrap;
+    /* Add focus style for accessibility */
+    outline: 2px solid transparent; /* default transparent outline */
+    outline-offset: 2px;
+}
+
+header nav a:hover {
+    background-color: var(--primary-color-light);
+    text-decoration: none;
+    transform: translateY(-1px);
+}
+
+header nav a:focus {
+    outline-color: white; /* White outline on focus for contrast */
+}
+
+main {
+    flex-grow: 1;
+    padding-left: var(--spacing-xl); /* Add horizontal padding to main */
+    padding-right: var(--spacing-xl); /* Add horizontal padding to main */
+    box-sizing: border-box; /* Include padding in main's width */
+}
+
+.case-selection-container {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: var(--background-white);
+    padding: var(--spacing-xxxxl);
+    border-radius: var(--border-radius-xl);
+    box-shadow: var(--box-shadow-lg);
+    text-align: center;
+}
+.case-selection-container h2 {
+    color: var(--primary-color-dark);
+    margin-bottom: 35px;
+    font-size: 2.2em;
+    font-weight: 600;
+}
+.case-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--spacing-xxl);
+    margin-top: var(--spacing-xl);
+}
+.case-list li a {
+    display: block;
+    padding: 18px var(--spacing-xxl);
+    background-color: var(--primary-color-light);
+    color: white;
+    text-decoration: none;
+    border-radius: var(--border-radius-md);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    font-weight: bold;
+    font-size: 1.15em;
+    box-shadow: var(--box-shadow-sm);
+    text-align: center;
+    /* Add focus style for accessibility */
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+.case-list li a:hover {
+    background-color: var(--primary-color-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3);
+}
+.case-list li a:focus {
+    outline-color: var(--primary-color-light); /* Highlight with primary color on focus */
+}
+
+.case-sheet-container {
+    max-width: 1000px;
+    margin: var(--spacing-xl) auto;
+    background-color: var(--background-white);
+    padding: 35px;
+    border-radius: var(--border-radius-xl);
+    box-shadow: var(--box-shadow-lg);
+}
+
+.section {
+    border: 1px solid var(--border-color-light);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-xxl);
+    margin-bottom: var(--spacing-xxxl);
+    background-color: var(--background-off-white);
+    box-shadow: var(--box-shadow-inner);
+}
+
+.section legend {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: var(--primary-color-dark);
+    padding: 0 var(--spacing-lg);
+    margin-left: calc(-1 * var(--spacing-lg)); /* Adjust to align with fieldset border */
+    background-color: var(--background-off-white);
+    border-radius: var(--border-radius-sm);
+}
+
+.form-group {
+    margin-bottom: var(--spacing-xl);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 600;
+    color: var(--text-color-medium);
+    font-size: 0.98em;
+}
+.form-group label sup {
+    color: var(--danger-color);
+    font-size: 0.8em;
+    vertical-align: super;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="date"],
+.form-group input[type="time"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px var(--spacing-lg);
+    border: 1px solid var(--border-color-medium);
+    border-radius: var(--border-radius-sm);
+    font-size: 1em;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    background-color: var(--background-very-light-grey);
+    color: var(--text-color-dark);
+    /* Add focus style for accessibility */
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color-light);
+    box-shadow: 0 0 0 3px var(--focus-ring-color);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 70px;
+}
+
+/* Inline groups for checkboxes/radios and WNL toggles */
+.input-group-inline {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xs);
+}
+.input-group-inline label {
+    margin-bottom: 0;
+    font-weight: normal;
+    color: var(--text-color-medium);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    cursor: pointer;
+    transition: color 0.2s ease;
+    /* Reset outline for labels if input has its own focus style */
+    outline: none;
+}
+.input-group-inline input[type="checkbox"],
+.input-group-inline input[type="radio"] {
+    width: auto;
+    margin-right: 0;
+    transform: scale(1.2);
+    cursor: pointer;
+    /* Add focus style directly to input for accessibility */
+    outline: none;
+    box-shadow: 0 0 0 2px transparent; /* Default transparent shadow for focus */
+}
+/* Hover/Focus states for radio/checkbox labels */
+.input-group-inline label:hover {
+    color: var(--primary-color-light);
+}
+.input-group-inline input[type="radio"]:focus,
+.input-group-inline input[type="checkbox"]:focus {
+    box-shadow: 0 0 0 2px var(--focus-ring-color); /* Subtle focus ring for accessibility */
+    border-radius: 3px;
+}
+
+.input-group-inline textarea {
+    flex-grow: 1;
+    min-width: 200px;
+}
+
+/* Specific styling for VA/IOP/Refraction, etc. to align them */
+.va-row, .iop-row, .refraction-row, .keratometry-row, .prism-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+    align-items: flex-start;
+}
+.od-os-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    background-color: #f9f9f9;
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--border-color-dark);
+}
+.od-os-pair .form-group {
+    margin-bottom: 0;
+}
+.od-os-pair label {
+    font-size: 0.9em;
+    color: var(--text-color-medium);
+    font-weight: normal;
+    margin-bottom: var(--spacing-xs);
+}
+.od-os-pair input, .od-os-pair select, .od-os-pair textarea {
+    font-size: 0.95em;
+    padding: 10px 12px;
+}
+
+.va-label, .iop-label, .refraction-label {
+    grid-column: 1 / -1;
+    margin-bottom: var(--spacing-lg);
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--text-color-dark);
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 1px dashed var(--border-color-light);
+}
+
+/* Disabled styling */
+input:disabled,
+textarea:disabled,
+select:disabled {
+    background-color: var(--background-disabled);
+    color: var(--text-color-light);
+    cursor: not-allowed;
+    opacity: 0.8; /* Subtle visual cue for disabled */
+}
+
+/* Conditional groups by default hidden, styled when shown by JS */
+.conditional-group {
+    display: none; /* Controlled by JS */
+    margin-top: var(--spacing-lg);
+    padding-left: var(--spacing-md);
+    border-left: 3px solid var(--primary-color-light);
+    border-radius: var(--border-radius-xs); /* For the left border */
+    padding-top: var(--spacing-md);
+    padding-bottom: var(--spacing-md);
+    background-color: var(--background-off-white);
+}
+.conditional-group .form-group {
+    margin-bottom: var(--spacing-md);
+}
+.conditional-group textarea,
+.conditional-group input[type="text"],
+.conditional-group select,
+.conditional-group input[type="number"] {
+    margin-top: 0; /* space within the group is handled by form-group margin */
+}
+
+
+/* Form Actions Buttons */
+.form-actions {
+    text-align: right;
+    margin-top: var(--spacing-xxxxl);
+    padding-top: var(--spacing-xxxl);
+    border-top: 1px solid var(--border-color-dark);
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: var(--spacing-lg);
+}
+
+.form-actions button {
+    padding: 13px 28px;
+    border: none;
+    border-radius: var(--border-radius-md);
+    font-size: 1.05em;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease, box-shadow 0.2s ease;
+    box-shadow: var(--box-shadow-button-base);
+    font-weight: 600;
+    /* Add focus style for accessibility */
+    outline: none;
+    box-shadow: 0 0 0 2px transparent; /* Default transparent shadow for focus */
+}
+
+#clearForm {
+    background-color: var(--warning-color);
+    color: var(--text-color-dark);
+}
+#clearForm:hover {
+    background-color: var(--warning-color-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow-button-hover) rgba(255, 193, 7, 0.3);
+}
+#clearForm:focus {
+    box-shadow: 0 0 0 3px var(--focus-ring-color);
+}
+
+
+#saveCase {
+    background-color: var(--primary-color-light);
+    color: white;
+}
+#saveCase:hover {
+    background-color: var(--primary-color-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow-button-hover) rgba(0, 123, 255, 0.3);
+}
+#saveCase:focus {
+    box-shadow: 0 0 0 3px var(--focus-ring-color);
+}
+
+
+footer {
+    text-align: center;
+    margin-top: var(--spacing-xxxxxl);
+    padding: var(--spacing-xxl);
+    color: #777;
+    font-size: 0.9em;
+    border-top: 1px solid var(--border-color-dark);
+    background-color: #f4f7f6;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 992px) {
+    main {
+        padding-left: var(--spacing-lg);
+        padding-right: var(--spacing-lg);
+    }
+    .case-sheet-container {
+        padding: var(--spacing-xxl);
+        margin: var(--spacing-lg) auto;
+    }
+    .section legend {
+        font-size: 1.3em;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: var(--spacing-md);
+    }
+    header {
+        flex-direction: column;
+        gap: var(--spacing-lg);
+        padding: var(--spacing-lg);
+    }
+    header h1 {
+        font-size: 1.6em;
+    }
+    header nav {
+        margin-left: 0;
+        justify-content: center;
+        width: 100%;
+    }
+    header nav a {
+        font-size: 0.9em;
+        padding: 6px 12px;
+    }
+    main {
+        padding-left: var(--spacing-md);
+        padding-right: var(--spacing-md);
+    }
+    .case-selection-container {
+        padding: var(--spacing-xl);
+        margin: var(--spacing-md) auto;
+    }
+    .section {
+        padding: 18px;
+        margin-bottom: var(--spacing-xl);
+    }
+    .section legend {
+        font-size: 1.1em;
+        margin-left: -8px;
+        padding: 0 8px;
+    }
+    .form-group label {
+        font-size: 0.9em;
+        margin-bottom: var(--spacing-xs);
+    }
+    .form-group input, .form-group select, .form-group textarea {
+        font-size: 0.9em;
+        padding: 10px 12px;
+    }
+    .va-row, .iop-row, .refraction-row, .keratometry-row, .prism-row, .od-os-pair {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+        margin-bottom: var(--spacing-lg);
+    }
+    .od-os-pair {
+        padding: var(--spacing-md);
+    }
+    .va-label, .iop-label, .refraction-label {
+        font-size: 1.05em;
+        margin-bottom: var(--spacing-md);
+    }
+    .form-actions {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-md);
+        margin-top: var(--spacing-xxxl);
+        padding-top: var(--spacing-xl);
+    }
+    .form-actions button {
+        width: 100%;
+        padding: 10px 15px;
+        font-size: 1em;
+    }
+
+    .input-group-inline {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-md);
+    }
+    .input-group-inline label {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.4em;
+    }
+    header nav a {
+        font-size: 0.8em;
+        padding: var(--spacing-xs) 8px;
+    }
+    .case-list {
+        grid-template-columns: 1fr;
+    }
+    .case-list li a {
+        font-size: 1em;
+        padding: 12px var(--spacing-lg);
+    }
+}
